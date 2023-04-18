@@ -646,7 +646,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!154 &582524821
 TerrainCollider:
@@ -1198,7 +1198,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0.75
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1060909730
@@ -1214,7 +1214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackLocation: {fileID: 1197532995}
-  terrainn: {fileID: 582524820}
 --- !u!136 &1060909731
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1532,6 +1531,7 @@ MonoBehaviour:
   TreeCreator: {fileID: 1248703268}
   BushCreator: {fileID: 2140651093}
   BeeCreator: {fileID: 1600477187}
+  terrainnn: {fileID: 582524820}
 --- !u!1 &1201953287
 GameObject:
   m_ObjectHideFlags: 0
