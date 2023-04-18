@@ -13,6 +13,7 @@ public class TimeShift : MonoBehaviour
     {
         seed = this.gameObject.transform.GetChild(0).gameObject;
         tree = this.gameObject.transform.GetChild(1).gameObject;
+
     }
 
     // Update is called once per frame
