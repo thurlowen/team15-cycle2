@@ -9,6 +9,7 @@ public class RayCaster : MonoBehaviour
     public GameObject BushCreator;
     public GameObject BeeCreator;
     public GameObject terrainnn;
+    public GameObject WaterSlow;
 
     
     // Start is called before the first frame update
@@ -92,7 +93,8 @@ public class RayCaster : MonoBehaviour
                 {
                     Debug.Log(objectHit.point);
                     //RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
-                    terrainnn.GetComponent<TerrainDeformer>().DestroyTerrain(new Vector3(objectHit.point.x, objectHit.point.y+10, objectHit.point.z),3);
+                    terrainnn.GetComponent<TerrainDeformer>().DestroyTerrain(new Vector3(objectHit.point.x, objectHit.point.y+10, objectHit.point.z),5);
+                    Instantiate(WaterSlow, objectHit.point, Quaternion.identity);
                     
                 }
 

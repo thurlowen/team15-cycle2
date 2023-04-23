@@ -40,4 +40,20 @@ public class MoveTo : MonoBehaviour
             TimeState++;
         }
     }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Water")
+        {
+            agent.velocity = new Vector3(0,0,0);
+            agent.acceleration = 1f;
+        }
+    }
+    void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.tag == "Water")
+        {
+            agent.acceleration = 8f;
+        }
+    }
 }
