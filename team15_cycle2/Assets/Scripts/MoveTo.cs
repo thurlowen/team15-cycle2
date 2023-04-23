@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class MoveTo : MonoBehaviour
 {
-    public GameObject AttackLocation;
+    private Transform playerLocation;
     NavMeshAgent agent;
     private int TimeState;
 
@@ -16,13 +16,15 @@ public class MoveTo : MonoBehaviour
         TimeState = 0;
         agent.speed = 0f;
 
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        playerLocation = player.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        agent.destination = AttackLocation.transform.position;
+        agent.destination = playerLocation.transform.position;
 
         if(TimeState == 1)
         {
