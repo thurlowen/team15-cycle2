@@ -10,6 +10,8 @@ TagManager:
   - Water
   - EndTree
   - Hotbar
+  - Enemy
+  - 1Tree
   layers:
   - Default
   - TransparentFX

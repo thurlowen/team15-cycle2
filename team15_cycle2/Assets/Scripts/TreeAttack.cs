@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TreeAttack : MonoBehaviour
 {
+    private float enemy_health = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,14 +14,15 @@ public class TreeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("test");
+            collision.gameObject.GetComponent<LookAtCam>().EnHealth = collision.gameObject.GetComponent<LookAtCam>().EnHealth - 0.65f;
+            
         }
     }
 }

@@ -7,7 +7,7 @@ public class LookAtCam : MonoBehaviour
 {
     //public Camera cameraToLookAt;
     
-    private float EnHealth;
+    public float EnHealth;
     private float MaxHealth;
     private Scrollbar slider;
     
@@ -27,8 +27,13 @@ public class LookAtCam : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    public void SetHealth()
-    {
-        //slider.size EnHealth / MaxHeal
-    }
+    // void OnCollisionStay(Collision collision)
+    // {
+    //     Debug.Log(collision.gameObject.tag);
+    //     if (collision.gameObject.tag == "1Tree")
+    //     {
+    //         Debug.Log("test");
+    //         EnHealth -= 0.1f;
+    //     }
+    // }
 }
