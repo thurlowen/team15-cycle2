@@ -6,32 +6,21 @@ using UnityEngine.UI;
 
 public class Hotbar : MonoBehaviour
 {
-    public int currentSlot = 0;
+    public int currentSlot;
     private int maxSlots = 3;
     private int minSlots = 0;
 
-    private GameObject Slot0;
-    private GameObject Slot1;
-    private GameObject Slot2;
-    private GameObject Slot3;
+    //Creates an event for switching between different towers
+    public event Action<int> onCurrentSlotChanged;
 
-    void Start()
-    {
-        Slot0 = GameObject.Find("Slot0");
-        Image slot0Image = Slot0.GetComponent<Image>();
+    //Hotbar colours
+    private string bcHex = "#373737"; //resting (background) colour - dark grey
+    private string scHex = "#878787"; //selected colour - light grey
 
-        Slot1 = GameObject.Find("Slot1");
-        Image slot1Image = Slot1.GetComponent<Image>();
-
-        Slot2 = GameObject.Find("Slot2");
-        Image slot2Image = Slot2.GetComponent<Image>();
-
-        Slot3 = GameObject.Find("Slot3");
-        Image slot3Image = Slot3.GetComponent<Image>();
-    }
 
     void Update()
     {
+        //Toggles between the 4 slots
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
         if (scroll > 0f)
@@ -50,8 +39,58 @@ public class Hotbar : MonoBehaviour
                 currentSlot = minSlots;
             }
         }
-
-
         
+        changeSlotColour();
+
+        //Raise the above event whenever the hotbar value changes so the RayCaster script knows whats happening
+        if (onCurrentSlotChanged != null)
+        {
+            onCurrentSlotChanged(currentSlot);
+        }
+    }
+
+    void changeSlotColour()
+    {
+        //Translates the colours into ones unity understands
+        Color baseColour = Color.white;
+        ColorUtility.TryParseHtmlString(bcHex, out baseColour);
+
+        Color selectedColour = Color.white;
+        ColorUtility.TryParseHtmlString(scHex, out selectedColour);
+        
+        //Gets the the slot, then the image child, then sets translated bg colour for all slots
+        GameObject s0 = transform.Find("Slot0").gameObject;
+        Image image0 = s0.GetComponent<Image>();
+        image0.color = baseColour;
+
+        GameObject s1 = transform.Find("Slot1").gameObject;
+        Image image1 = s1.GetComponent<Image>();
+        image1.color = baseColour;
+
+        GameObject s2 = transform.Find("Slot2").gameObject;
+        Image image2 = s2.GetComponent<Image>();
+        image2.color = baseColour;
+
+        GameObject s3 = transform.Find("Slot3").gameObject;
+        Image image3 = s3.GetComponent<Image>();
+        image3.color = baseColour;
+
+        //Sets the colours based upon what slot is selected
+        if (currentSlot == 0)
+        {
+            image0.color = selectedColour;
+        }
+        else if (currentSlot == 1)
+        {
+            image1.color = selectedColour;
+        }
+        else if (currentSlot == 2)
+        {
+            image2.color = selectedColour;
+        }
+        else if (currentSlot == 3)
+        {
+            image3.color = selectedColour;
+        }
     }
 }

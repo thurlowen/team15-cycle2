@@ -9,8 +9,7 @@ TagManager:
   - Ground
   - Water
   - EndTree
-  - TreeT
-  - Enemy
+  - Hotbar
   layers:
   - Default
   - TransparentFX
