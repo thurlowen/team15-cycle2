@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TreeAttack : MonoBehaviour
 {
-    private float enemy_health = 0f;
     // Start is called before the first frame update
     void Start()
     {

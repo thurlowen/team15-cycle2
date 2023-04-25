@@ -25,6 +25,12 @@ public class LookAtCam : MonoBehaviour
         v.x = v.z = 0.0f;
         transform.LookAt(Camera.main.transform.position - v);
         transform.Rotate(0, 180, 0);
+
+        if(EnHealth <= 0)
+        {
+            Debug.Log("enemy dead");
+            Destroy(gameObject);
+        }
     }
 
     // void OnCollisionStay(Collision collision)
