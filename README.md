@@ -13,62 +13,65 @@ https://chat.openai.com/
     <summary>ChatGPT Prompt</summary>
     <br>
         "This is my code, it is supposed to change the colour of the selected hotbar slot based upon the users input. I have two colours, bcHex which is the base   colour for when the slot is not selected and scHex which is the selected colour. how do i firstly set these colours and secondly make only the selected slot changes to the scHex colour?
+    
     ```csharp
-        public event Action<int> onCurrentSlotChanged;
+    
+    public event Action<int> onCurrentSlotChanged;
 
-            public int currentSlot;
-            private int maxSlots = 3;
-            private int minSlots = 0;
+    public int currentSlot;
+    private int maxSlots = 3;
+    private int minSlots = 0;
 
-            private string bcHex = "#373737";
-            private string scHex = "#878787";
+    private string bcHex = "#373737";
+    private string scHex = "#878787";
 
-            void Update()
+    void Update()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scroll > 0f)
         {
-            float scroll = Input.GetAxis("Mouse ScrollWheel");
-
-            if (scroll > 0f)
+            currentSlot += 1;
+            if (currentSlot >= maxSlots)
             {
-                currentSlot += 1;
-                if (currentSlot >= maxSlots)
-                {
-                    currentSlot = maxSlots;
-                }
-            }
-            else if (scroll < 0f)
-            {
-                currentSlot -= 1;
-                if (currentSlot <= minSlots)
-                {
-                    currentSlot = minSlots;
-                }
-            }
-
-            changeSlotColour();
-
-            //Raise the event whenever the hotbar value changes
-            if (onCurrentSlotChanged != null)
-            {
-                onCurrentSlotChanged(currentSlot);
+                currentSlot = maxSlots;
             }
         }
 
-            void changeSlotColour()
+        else if (scroll < 0f)
         {
-            GameObject s0 = transform.Find("Slot0").gameObject;
-            Image image0 = s0.GetComponent<Image>();
-            GameObject s1 = transform.Find("Slot1").gameObject;
-            Image image1 = s1.GetComponent<Image>();
-            GameObject s2 = transform.Find("Slot2").gameObject;
-            Image image2 = s2.GetComponent<Image>();
-            GameObject s3 = transform.Find("Slot3").gameObject;
-            Image image3 = s3.GetComponent<Image>();
-
-            if (currentSlot == 0)
+            currentSlot -= 1;
+            if (currentSlot <= minSlots)
             {
-
+                currentSlot = minSlots;
             }
         }
+
+        changeSlotColour();
+
+        //Raise the event whenever the hotbar value changes
+        if (onCurrentSlotChanged != null)
+        {
+            onCurrentSlotChanged(currentSlot);
+        }
+    }
+    
+    void changeSlotColour()
+    {
+        GameObject s0 = transform.Find("Slot0").gameObject;
+        Image image0 = s0.GetComponent<Image>();
+        GameObject s1 = transform.Find("Slot1").gameObject;
+        Image image1 = s1.GetComponent<Image>();
+        GameObject s2 = transform.Find("Slot2").gameObject;
+        Image image2 = s2.GetComponent<Image>();
+        GameObject s3 = transform.Find("Slot3").gameObject;
+        Image image3 = s3.GetComponent<Image>();
+
+        if (currentSlot == 0)
+        {
+
+        }
+    }
     ```
-    "
-    </details>
+"
+</details>
