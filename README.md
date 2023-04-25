@@ -1,12 +1,12 @@
 # Game Reference List
 
 ## First Person Controller:
-    https://assetstore.unity.com/packages/3d/characters/modular-first-person-controller-189884
+https://assetstore.unity.com/packages/3d/characters/modular-first-person-controller-189884
 
 ## Hotbar Scroller:
-    https://www.youtube.com/watch?v=-xB4xEmGtCY&list=PLOyj0nn-asmaqBZ_hGoCh-PBlraNaHLyA
-    https://forum.unity.com/threads/how-do-you-get-mouse-scroll-input.825672/
-    https://chat.openai.com/
+https://www.youtube.com/watch?v=-xB4xEmGtCY&list=PLOyj0nn-asmaqBZ_hGoCh-PBlraNaHLyA
+https://forum.unity.com/threads/how-do-you-get-mouse-scroll-input.825672/
+https://chat.openai.com/
 ### ChatGPT Prompt:
     "This is my code, it is supposed to change the colour of the selected hotbar slot based upon the users input. I have two colours, bcHex which is the base colour for when the slot is not selected and scHex which is the selected colour. how do i firstly set these colours and secondly make only the selected slot changes to the scHex colour?
     ```csharp
