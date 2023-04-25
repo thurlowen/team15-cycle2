@@ -13,7 +13,7 @@ https://chat.openai.com/
     <summary>ChatGPT Prompt</summary>
     <br>
         "This is my code, it is supposed to change the colour of the selected hotbar slot based upon the users input. I have two colours, bcHex which is the base   colour for when the slot is not selected and scHex which is the selected colour. how do i firstly set these colours and secondly make only the selected slot changes to the scHex colour?
-        ```csharp
+    ```csharp
         public event Action<int> onCurrentSlotChanged;
 
             public int currentSlot;
@@ -69,6 +69,6 @@ https://chat.openai.com/
 
             }
         }
-        ```
-        "
+    ```
+    "
     </details>
