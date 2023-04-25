@@ -11,11 +11,21 @@ public class RayCaster : MonoBehaviour
     public GameObject terrainnn;
     public GameObject WaterSlow;
 
+    private int hotbarValue;
+
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Get a reference to the hotbar script
+        Hotbar hotbar = GameObject.FindWithTag("Hotbar").GetComponent<Hotbar>();
+        hotbar.onCurrentSlotChanged += handleCurrentSlotChanged;
+        hotbarValue = hotbar.currentSlot;
+    }
+
+    void handleCurrentSlotChanged(int newSlot)
+    {
+        hotbarValue = newSlot;
     }
 
     // Update is called once per frame
@@ -23,7 +33,28 @@ public class RayCaster : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown("l"))
+        if (hotbarValue == 0 && Input.GetMouseButtonDown(0))
+        {
+
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
+            //Debug.DrawRay(transform.position, fwd * 10, Color.green);
+
+            if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
+            {
+                //do something if hit object ie
+                if (objectHit.collider.gameObject.tag == "Ground")
+                {
+                    Debug.Log(objectHit.point);
+                    //RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
+                    terrainnn.GetComponent<TerrainDeformer>().DestroyTerrain(new Vector3(objectHit.point.x, objectHit.point.y + 10, objectHit.point.z), 5);
+                    Instantiate(WaterSlow, objectHit.point, Quaternion.identity);
+
+                }
+
+            }
+        }
+
+        if (hotbarValue == 1 && Input.GetMouseButtonDown(0))
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -42,7 +73,8 @@ public class RayCaster : MonoBehaviour
 
             }
         }
-        if(Input.GetKeyDown("k"))
+
+        if(hotbarValue == 2 && Input.GetMouseButtonDown(0))
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -61,7 +93,8 @@ public class RayCaster : MonoBehaviour
 
             }
         }
-        if(Input.GetKeyDown("j"))
+
+        if(hotbarValue == 3 && Input.GetMouseButtonDown(0))
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -80,25 +113,6 @@ public class RayCaster : MonoBehaviour
 
             }
         }
-        if(Input.GetKeyDown("h"))
-        {
-            
-            Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            //Debug.DrawRay(transform.position, fwd * 10, Color.green);
-
-            if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
-            {
-                //do something if hit object ie
-                if(objectHit.collider.gameObject.tag=="Ground")
-                {
-                    Debug.Log(objectHit.point);
-                    //RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
-                    terrainnn.GetComponent<TerrainDeformer>().DestroyTerrain(new Vector3(objectHit.point.x, objectHit.point.y+10, objectHit.point.z),5);
-                    Instantiate(WaterSlow, objectHit.point, Quaternion.identity);
-                    
-                }
-
-            }
-        }
+        
     }
 }
