@@ -9,6 +9,8 @@ TagManager:
   - Ground
   - Water
   - EndTree
+  - TreeT
+  - Enemy
   layers:
   - Default
   - TransparentFX

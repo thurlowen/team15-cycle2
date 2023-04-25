@@ -15,7 +15,7 @@ public class LookAtCam : MonoBehaviour
     {
         slider = GetComponentInChildren<Scrollbar>();
         MaxHealth = 100f;
-        EnHealth = 75f;
+        EnHealth = 100f;
     }
 
     void Update()

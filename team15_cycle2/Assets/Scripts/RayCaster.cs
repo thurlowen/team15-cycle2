@@ -29,7 +29,7 @@ public class RayCaster : MonoBehaviour
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             //Debug.DrawRay(transform.position, fwd * 10, Color.green);
 
-            if (Physics.Raycast(transform.position, fwd, out objectHit, 1))
+            if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
             {
                 //do something if hit object ie
                 if(objectHit.collider.gameObject.tag=="Ground")
