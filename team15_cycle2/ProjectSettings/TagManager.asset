@@ -12,6 +12,8 @@ TagManager:
   - Hotbar
   - Enemy
   - 1Tree
+  - 2Bush
+  - 3Venus
   layers:
   - Default
   - TransparentFX

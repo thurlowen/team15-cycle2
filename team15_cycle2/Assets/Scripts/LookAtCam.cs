@@ -10,16 +10,21 @@ public class LookAtCam : MonoBehaviour
     public float EnHealth;
     private float MaxHealth;
     private Scrollbar slider;
+    public Text fxstatus;
     
     void Start()
     {
+
         slider = GetComponentInChildren<Scrollbar>();
+        fxstatus = GetComponentInChildren<Text>();
+        fxstatus.text = "";
         MaxHealth = 100f;
         EnHealth = 100f;
     }
 
     void Update()
     {
+        //fxstatus.text = "100";
         slider.size = EnHealth/MaxHealth;
         Vector3 v = Camera.main.transform.position - transform.position;
         v.x = v.z = 0.0f;
@@ -28,18 +33,13 @@ public class LookAtCam : MonoBehaviour
 
         if(EnHealth <= 0)
         {
-            Debug.Log("enemy dead");
             Destroy(gameObject);
         }
     }
 
-    // void OnCollisionStay(Collision collision)
+    // void OnCollisionStay(Collision col)
     // {
-    //     Debug.Log(collision.gameObject.tag);
-    //     if (collision.gameObject.tag == "1Tree")
-    //     {
-    //         Debug.Log("test");
-    //         EnHealth -= 0.1f;
-    //     }
+    //     Debug.Log(col.gameObject.tag);
     // }
+
 }
