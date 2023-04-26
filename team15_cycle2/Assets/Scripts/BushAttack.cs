@@ -4,23 +4,15 @@ using UnityEngine;
 
 public class BushAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float bushDamageToEnemy = 0.3f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<LookAtCam>().EnHealth = collision.gameObject.GetComponent<LookAtCam>().EnHealth - 0.3f;
-            if(collision.gameObject.GetComponent<LookAtCam>().fxstatus.text.Contains("3"))
+            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - bushDamageToEnemy;
+            
+            if (collision.gameObject.GetComponent<LookAtCam>().fxstatus.text.Contains("3"))
             {
 
             }

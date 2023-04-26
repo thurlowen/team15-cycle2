@@ -19,7 +19,7 @@ public class VenusAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<LookAtCam>().EnHealth = collision.gameObject.GetComponent<LookAtCam>().EnHealth - 0.15f;
+            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - 0.15f;
             if(collision.gameObject.GetComponent<LookAtCam>().fxstatus.text.Contains("4"))
             {
 

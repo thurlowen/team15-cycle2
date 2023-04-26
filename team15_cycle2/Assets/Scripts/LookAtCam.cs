@@ -7,7 +7,7 @@ public class LookAtCam : MonoBehaviour
 {
     //public Camera cameraToLookAt;
     
-    public float EnHealth;
+    public float EnemyHealth;
     private float MaxHealth;
     private Scrollbar slider;
     public Text fxstatus;
@@ -19,19 +19,19 @@ public class LookAtCam : MonoBehaviour
         fxstatus = GetComponentInChildren<Text>();
         fxstatus.text = "";
         MaxHealth = 100f;
-        EnHealth = 100f;
+        EnemyHealth = 100f;
     }
 
     void Update()
     {
         //fxstatus.text = "100";
-        slider.size = EnHealth/MaxHealth;
+        slider.size = EnemyHealth/MaxHealth;
         Vector3 v = Camera.main.transform.position - transform.position;
         v.x = v.z = 0.0f;
         transform.LookAt(Camera.main.transform.position - v);
         transform.Rotate(0, 180, 0);
 
-        if(EnHealth <= 0)
+        if(EnemyHealth <= 0)
         {
             Destroy(gameObject);
         }

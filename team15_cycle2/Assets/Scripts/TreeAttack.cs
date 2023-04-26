@@ -20,7 +20,7 @@ public class TreeAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<LookAtCam>().EnHealth = collision.gameObject.GetComponent<LookAtCam>().EnHealth - 0.65f;
+            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - 0.65f;
             if(collision.gameObject.GetComponent<LookAtCam>().fxstatus.text.Contains("2"))
             {}
             else
