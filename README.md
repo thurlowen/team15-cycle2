@@ -74,3 +74,18 @@ void changeSlotColour()
 ```
 "
 </details>
+
+
+MochiesCode (Creator). (2023, April 1). Mochies Unity Shaders Full Shader Package v1.37 [unitypackage].
+https://github.com/MochiesCode/Mochies-Unity-Shaders/releases 
+
+Polytope Studio. (Creator). (2023, April, 14). Lowpoly Environment - Nature Pack Free [GZIP].
+https://assetstore.unity.com/packages/3d/environments/lowpoly-environment-nature-pack-free-187052 
+
+Jack Swan, Ishnifus Meaddle, Ordo Redactus (Original Creator). (2021, July, 28). [WK] Walking Armour Vehicles [FBX].
+https://steamcommunity.com/sharedfiles/filedetails/?id=2446078698 
+
+TheDizcordumSeventh, Jack Swan, Stenier [Rus] (Original Creator). (2022, September, 28). [WK] Imperium Citizens [FBX].
+https://steamcommunity.com/sharedfiles/filedetails/?id=2275920516 
+
+

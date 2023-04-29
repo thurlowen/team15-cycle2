@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sentinel Text 1
+  m_Name: Male
   m_Shader: {fileID: 4800000, guid: 5398f14cd241f2649988529db4480d1c, type: 3}
   m_ValidKeywords:
   - _SHADING_ON
@@ -136,7 +136,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d914d7562382ae148be847494399661c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 79fea980a468642468b7a5184438f4b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex2:
