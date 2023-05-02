@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class BushAttack : MonoBehaviour
 {
-    private float bushDamageToEnemy = 0.3f;
+    private float bushDamageToEnemy;
     private int EnemyNo = 0;
+    private TowerAttacks tower_attacks;
+
+    void Start()
+    {
+        tower_attacks = GameObject.Find("TowerDamage").GetComponent<TowerAttacks>();
+    }
 
     void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - bushDamageToEnemy/EnemyNo;
+            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - tower_attacks.bushDamage/EnemyNo;
             
             if (collision.gameObject.GetComponent<LookAtCam>().fxstatus.text.Contains("3"))
             {
@@ -39,5 +45,6 @@ public class BushAttack : MonoBehaviour
             collision.gameObject.GetComponent<LookAtCam>().fxstatus.text = "";
         }
     }
+
     
 }

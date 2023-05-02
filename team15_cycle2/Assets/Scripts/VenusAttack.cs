@@ -5,11 +5,13 @@ using UnityEngine;
 public class VenusAttack : MonoBehaviour
 {
     // Start is called before the first frame update
+    private float venusDamageToEnemy;
     private int EnemyNo = 0;
+    private TowerAttacks tower_attacks;
 
     void Start()
     {
-        
+        tower_attacks = GameObject.Find("TowerDamage").GetComponent<TowerAttacks>();
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class VenusAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - 0.15f/EnemyNo;
+            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - tower_attacks.venusDamage/EnemyNo;
             if(collision.gameObject.GetComponent<LookAtCam>().fxstatus.text.Contains("4"))
             {
 
