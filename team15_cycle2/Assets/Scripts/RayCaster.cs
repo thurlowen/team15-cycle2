@@ -12,6 +12,7 @@ public class RayCaster : MonoBehaviour
     public GameObject WaterSlow;
 
     private int hotbarValue;
+    private PlayerCurrency pc;
 
     
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class RayCaster : MonoBehaviour
         Hotbar hotbar = GameObject.FindWithTag("Hotbar").GetComponent<Hotbar>();
         hotbar.onCurrentSlotChanged += handleCurrentSlotChanged;
         hotbarValue = hotbar.currentSlot;
+        pc = this.GetComponentInParent<PlayerCurrency>();
     }
 
     void handleCurrentSlotChanged(int newSlot)
@@ -33,85 +35,76 @@ public class RayCaster : MonoBehaviour
 
     void Update()
     {
-        if (hotbarValue == 0 && Input.GetMouseButtonDown(0))
+        if (hotbarValue == 0 && Input.GetMouseButtonDown(0) && pc.p_curr >= 100)
         {
 
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            //Debug.DrawRay(transform.position, fwd * 10, Color.green);
 
             if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
             {
                 //do something if hit object ie
                 if (objectHit.collider.gameObject.tag == "Ground")
                 {
-                    Debug.Log(objectHit.point);
-                    Debug.Log(objectHit.collider.gameObject.tag);
-                    //RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     terrainnn.GetComponent<TerrainDeformer>().DestroyTerrain(new Vector3(objectHit.point.x, objectHit.point.y + 10, objectHit.point.z), 5);
                     Instantiate(WaterSlow, objectHit.point, Quaternion.identity);
+                    pc.p_curr -= 100;
 
                 }
 
             }
         }
 
-        if (hotbarValue == 1 && Input.GetMouseButtonDown(0))
+        if (hotbarValue == 1 && Input.GetMouseButtonDown(0) && pc.p_curr >= 75)
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            //Debug.DrawRay(transform.position, fwd * 10, Color.green);
 
             if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
             {
                 //do something if hit object ie
                 if(objectHit.collider.gameObject.tag=="Ground")
                 {
-                    Debug.Log(objectHit.point);
-                    Debug.Log(objectHit.collider.gameObject.tag);
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(TreeCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
+                    pc.p_curr -= 75;
                     
                 }
 
             }
         }
 
-        if(hotbarValue == 2 && Input.GetMouseButtonDown(0))
+        if(hotbarValue == 2 && Input.GetMouseButtonDown(0) && pc.p_curr >= 50)
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            //Debug.DrawRay(transform.position, fwd * 10, Color.green);
 
             if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
             {
                 //do something if hit object ie
                 if(objectHit.collider.gameObject.tag=="Ground")
                 {
-                    Debug.Log(objectHit.point);
-                    Debug.Log(objectHit.collider.gameObject.tag);
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(BushCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
+                    pc.p_curr -= 50;
                     
                 }
 
             }
         }
 
-        if(hotbarValue == 3 && Input.GetMouseButtonDown(0))
+        if(hotbarValue == 3 && Input.GetMouseButtonDown(0) && pc.p_curr >= 25)
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            //Debug.DrawRay(transform.position, fwd * 10, Color.green);
 
             if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
             {
                 //do something if hit object ie
                 if(objectHit.collider.gameObject.tag=="Ground")
                 {
-                    Debug.Log(objectHit.point);
-                    Debug.Log(objectHit.collider.gameObject.tag);
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(BeeCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
+                    pc.p_curr -= 25;
                     
                 }
 

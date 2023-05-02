@@ -11,12 +11,14 @@ public class LookAtCam : MonoBehaviour
     private float MaxHealth;
     private Scrollbar slider;
     public Text fxstatus;
+    private GameObject money;
     
     void Start()
     {
 
         slider = GetComponentInChildren<Scrollbar>();
         fxstatus = GetComponentInChildren<Text>();
+        money = GameObject.Find("Money");
         fxstatus.text = "";
         MaxHealth = 100f;
         EnemyHealth = 100f;
@@ -33,7 +35,9 @@ public class LookAtCam : MonoBehaviour
 
         if(EnemyHealth <= 0)
         {
+            Instantiate(money, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            
         }
     }
 

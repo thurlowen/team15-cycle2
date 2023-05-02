@@ -14,6 +14,7 @@ TagManager:
   - 1Tree
   - 2Bush
   - 3Venus
+  - Money
   layers:
   - Default
   - TransparentFX
