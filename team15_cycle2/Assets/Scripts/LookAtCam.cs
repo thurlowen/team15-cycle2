@@ -26,10 +26,10 @@ public class LookAtCam : MonoBehaviour
     {
         //fxstatus.text = "100";
         slider.size = EnemyHealth/MaxHealth;
-        Vector3 v = Camera.main.transform.position - transform.position;
-        v.x = v.z = 0.0f;
-        transform.LookAt(Camera.main.transform.position - v);
-        transform.Rotate(0, 180, 0);
+        // Vector3 v = Camera.main.transform.position - transform.position;
+        // v.x = v.z = 0.0f;
+        // transform.LookAt(Camera.main.transform.position - v);
+        // transform.Rotate(0, 180, 0);
 
         if(EnemyHealth <= 0)
         {
