@@ -41,7 +41,10 @@ public class TimeShift : MonoBehaviour
         }
         if(Input.GetKeyDown("p"))
         {
-            TimeState++;
+            if(TimeState == 0)
+            {
+                TimeState++;
+            }
         }
     
     }
