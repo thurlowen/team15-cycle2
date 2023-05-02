@@ -10,6 +10,7 @@ public class EnableShop : MonoBehaviour
     private GameObject hud;
     private Text curr_text;
     private PlayerCurrency curr;
+    private FirstPersonController fps_con;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class EnableShop : MonoBehaviour
         hud = GameObject.Find("HUD");
         curr_text = GameObject.Find("ug_text").GetComponent<Text>();
         curr = GameObject.Find("Player").GetComponent<PlayerCurrency>();
+        fps_con = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();
 
     }
 
@@ -34,6 +36,8 @@ public class EnableShop : MonoBehaviour
             hud.SetActive(true);
             store.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            fps_con.cameraCanMove = true;
+            fps_con.playerCanMove = true;
         }
         if(isShop == true)
         {
@@ -42,6 +46,8 @@ public class EnableShop : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
 
             curr_text.text = "UPGRADES: "+curr.p_curr;
+            fps_con.cameraCanMove = false;
+            fps_con.playerCanMove = false;
 
         }
     }
