@@ -5,6 +5,8 @@ using UnityEngine;
 public class VenusAttack : MonoBehaviour
 {
     // Start is called before the first frame update
+    private int EnemyNo = 0;
+
     void Start()
     {
         
@@ -19,7 +21,7 @@ public class VenusAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - 0.15f;
+            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - 0.15f/EnemyNo;
             if(collision.gameObject.GetComponent<LookAtCam>().fxstatus.text.Contains("4"))
             {
 
@@ -30,10 +32,19 @@ public class VenusAttack : MonoBehaviour
             }
         }
     }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            EnemyNo++;
+        }
+    }
     void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            EnemyNo--;
             collision.gameObject.GetComponent<LookAtCam>().fxstatus.text = "";
         }
     }

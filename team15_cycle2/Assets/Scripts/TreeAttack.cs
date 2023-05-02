@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TreeAttack : MonoBehaviour
 {
+    private int EnemyNo = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class TreeAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - 0.65f;
+            collision.gameObject.GetComponent<LookAtCam>().EnemyHealth = collision.gameObject.GetComponent<LookAtCam>().EnemyHealth - 0.65f/EnemyNo;
             if(collision.gameObject.GetComponent<LookAtCam>().fxstatus.text.Contains("2"))
             {}
             else
@@ -29,10 +30,18 @@ public class TreeAttack : MonoBehaviour
             }
         }
     }
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            EnemyNo++;
+        }
+    }
     void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            EnemyNo--;
             collision.gameObject.GetComponent<LookAtCam>().fxstatus.text = "";
         }
     }
