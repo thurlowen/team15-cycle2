@@ -45,6 +45,7 @@ public class RayCaster : MonoBehaviour
                 if (objectHit.collider.gameObject.tag == "Ground")
                 {
                     Debug.Log(objectHit.point);
+                    Debug.Log(objectHit.collider.gameObject.tag);
                     //RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     terrainnn.GetComponent<TerrainDeformer>().DestroyTerrain(new Vector3(objectHit.point.x, objectHit.point.y + 10, objectHit.point.z), 5);
                     Instantiate(WaterSlow, objectHit.point, Quaternion.identity);
@@ -66,6 +67,7 @@ public class RayCaster : MonoBehaviour
                 if(objectHit.collider.gameObject.tag=="Ground")
                 {
                     Debug.Log(objectHit.point);
+                    Debug.Log(objectHit.collider.gameObject.tag);
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(TreeCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
                     
@@ -86,6 +88,7 @@ public class RayCaster : MonoBehaviour
                 if(objectHit.collider.gameObject.tag=="Ground")
                 {
                     Debug.Log(objectHit.point);
+                    Debug.Log(objectHit.collider.gameObject.tag);
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(BushCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
                     
@@ -106,6 +109,7 @@ public class RayCaster : MonoBehaviour
                 if(objectHit.collider.gameObject.tag=="Ground")
                 {
                     Debug.Log(objectHit.point);
+                    Debug.Log(objectHit.collider.gameObject.tag);
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(BeeCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
                     
