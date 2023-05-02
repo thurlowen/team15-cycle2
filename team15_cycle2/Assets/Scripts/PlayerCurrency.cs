@@ -13,7 +13,7 @@ public class PlayerCurrency : MonoBehaviour
     {
         
         player_c = GameObject.Find("PlayerCurr").GetComponent<Text>();
-        p_curr = 100;
+        p_curr = 150;
 
     }
 
