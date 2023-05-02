@@ -4948,7 +4948,7 @@ MonoBehaviour:
   m_Text: 'Cost: 25
 
 
-    Player Speed + 20%'
+    Player Speed + 10%'
 --- !u!222 &989829767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5166,7 +5166,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: TOUCH
+  m_Text: SPEED
 --- !u!222 &1038189744
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9438,7 +9438,19 @@ MonoBehaviour:
       m_Calls: []
   onClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1753445037}
+        m_TargetAssemblyTypeName: TowerAttacks, Assembly-CSharp
+        m_MethodName: SpeedUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1699398823
 GameObject:
   m_ObjectHideFlags: 0
