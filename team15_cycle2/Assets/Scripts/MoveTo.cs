@@ -45,7 +45,7 @@ public class MoveTo : MonoBehaviour
     {
         if (collision.gameObject.tag == "Water")
         {
-            agent.velocity = new Vector3(0,0,0);
+            agent.velocity = new Vector3(-1,0,0);
             agent.acceleration = 1f;
         }
     }
@@ -53,7 +53,7 @@ public class MoveTo : MonoBehaviour
     {
         if (collision.gameObject.tag == "Water")
         {
-            agent.velocity = new Vector3(0,0,0);
+            agent.velocity = new Vector3(-1f,0,0);
             agent.acceleration = 8f;
         }
     }
