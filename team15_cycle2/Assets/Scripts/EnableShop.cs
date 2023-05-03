@@ -27,10 +27,11 @@ public class EnableShop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("m"))
-        {
-            isShop = !isShop;
-        }
+        // if(Input.GetKeyDown("m"))
+        // {
+        //     isShop = !isShop;
+        // }
+        
         if(isShop == false)
         {
             hud.SetActive(true);
@@ -38,6 +39,7 @@ public class EnableShop : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             fps_con.cameraCanMove = true;
             fps_con.playerCanMove = true;
+            fps_con.enableHeadBob = true;
         }
         if(isShop == true)
         {
@@ -48,6 +50,7 @@ public class EnableShop : MonoBehaviour
             curr_text.text = "UPGRADES: "+curr.p_curr;
             fps_con.cameraCanMove = false;
             fps_con.playerCanMove = false;
+            fps_con.enableHeadBob = false;
 
         }
     }
@@ -56,4 +59,6 @@ public class EnableShop : MonoBehaviour
     {
         isShop = !isShop;
     }
+
+    
 }
