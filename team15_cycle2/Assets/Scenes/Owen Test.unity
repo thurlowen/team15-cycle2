@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.14703749, g: 0.3639866, b: 0.57992274, a: 1}
+  m_IndirectSpecularColor: {r: 0.14696829, g: 0.36453757, b: 0.5796436, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7516,7 +7516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77812514a1c3a4266a5216e30e09c7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTime: 0
 --- !u!114 &1248703271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9348,7 +9347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77812514a1c3a4266a5216e30e09c7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTime: 0
 --- !u!4 &1600477189
 Transform:
   m_ObjectHideFlags: 0
@@ -10278,6 +10276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1753445036}
   - component: {fileID: 1753445037}
+  - component: {fileID: 1753445038}
   m_Layer: 0
   m_Name: TowerDamage
   m_TagString: Untagged
@@ -10315,6 +10314,20 @@ MonoBehaviour:
   treeDamage: 0
   venusDamage: 0
   bushDamage: 0
+--- !u!114 &1753445038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753445035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1145a023338e45049a7637f6e080de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 0
+  timeState: 0
 --- !u!1 &1763992497
 GameObject:
   m_ObjectHideFlags: 0
@@ -12924,7 +12937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77812514a1c3a4266a5216e30e09c7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTime: 0
 --- !u!4 &2140651095
 Transform:
   m_ObjectHideFlags: 0

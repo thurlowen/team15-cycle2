@@ -8,20 +8,25 @@ public class TimeShift : MonoBehaviour
     private GameObject tree;
     private int timeState = 0;
 
-    private float maxTime = 10;
-    public float currentTime;
+    private TimeShifter ts;
+
+    
 
     void Start()
     {
         seed = this.gameObject.transform.GetChild(0).gameObject;
         tree = this.gameObject.transform.GetChild(1).gameObject;
+        ts = GameObject.Find("TowerDamage").GetComponent<TimeShifter>();
 
-        ResetTimer();
+        
     }
 
     void Update()
     {
-        Timer();
+        timeState = ts.timeState;
+        Debug.Log(ts.timeState);
+
+        
 
         if (timeState == 0)
         {
@@ -34,53 +39,6 @@ public class TimeShift : MonoBehaviour
             seed.gameObject.SetActive(false);
             tree.gameObject.SetActive(true);
         }
-
-        //Go to past
-        if (Input.GetKeyDown("o"))
-        {
-            ToPast();
-            ResetTimer();
-        }
-
-        //Skip to future
-        if (Input.GetKeyDown("p"))
-        {
-            ToFuture();
-        }
     }
-
-    private void Timer()
-    {
-        if (currentTime > 0 && timeState == 0)
-        {
-            currentTime -= 1 * Time.deltaTime;
-            //Debug.Log(currentTime);
-        }
-
-        if (currentTime <= 0 && timeState == 0)
-        {
-            ToFuture();
-        }
-    }
-
-    private void ToFuture()
-    {
-        if (timeState == 0)
-        {
-            timeState++;
-        }
-    }
-
-    private void ToPast()
-    {
-        if (timeState == 1)
-        {
-            timeState--;
-        }
-    }
-
-    private void ResetTimer()
-    {
-        currentTime = maxTime;
-    }
+        
 }

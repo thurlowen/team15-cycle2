@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     private Text countDownText;
-    private TimeShift TimeShift;
+    private TimeShifter TimeShifter;
 
     void Start()
     {
         countDownText = GetComponentInChildren<Text>();
-        TimeShift = FindObjectOfType<TimeShift>();
+        TimeShifter = FindObjectOfType<TimeShifter>();
     }
 
     void Update()
     {
-        countDownText.text = TimeShift.currentTime.ToString();
+        countDownText.text = TimeShifter.currentTime.ToString();
     }
 }

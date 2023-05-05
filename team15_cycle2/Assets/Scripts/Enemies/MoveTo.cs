@@ -8,6 +8,7 @@ public class MoveTo : MonoBehaviour
     private Transform treeLocation;
     NavMeshAgent agent;
     private int TimeState;
+    private TimeShifter TimeShifter;
 
     // Start is called before the first frame update
     void Start()
@@ -18,17 +19,22 @@ public class MoveTo : MonoBehaviour
 
         GameObject tree = GameObject.FindGameObjectWithTag("EndTree");
         treeLocation = tree.transform;
+        TimeShifter = FindObjectOfType<TimeShifter>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        TimeState = TimeShifter.timeState;
         agent.destination = treeLocation.transform.position;
 
         if(TimeState == 1)
         {
             agent.speed = 3.5f;
+        }
+        else
+        {
+            agent.speed = 0f;
         }
 
         if(Input.GetKeyDown("o"))

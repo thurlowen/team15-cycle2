@@ -8,12 +8,12 @@ public class FovChange : MonoBehaviour
     bool fovEffect = false;
     int count = 0;
 
-    private TimeShift TimeShift;
+    private TimeShifter TimeShifter;
     private bool fovEffectMet = false;
 
     void Start()
     {
-        TimeShift = FindObjectOfType<TimeShift>();
+        TimeShifter = FindObjectOfType<TimeShifter>();
     }
 
     void Update()
@@ -24,7 +24,7 @@ public class FovChange : MonoBehaviour
         {
             if(t <= 190f)
             {
-                t += Time.deltaTime * 500;
+                t += Time.deltaTime * 1000;
             }
             else
             {
@@ -35,7 +35,7 @@ public class FovChange : MonoBehaviour
         {
             if(t >= 90f)
             {
-                t -= Time.deltaTime * 500;
+                t -= Time.deltaTime * 1000;
             }
             else
             {
@@ -44,7 +44,7 @@ public class FovChange : MonoBehaviour
             }
         }
 
-        if(TimeShift.currentTime <= 0 && !fovEffectMet)
+        if(TimeShifter.currentTime <= 0 && !fovEffectMet)
         {
             fovEffect = true;
             fovEffectMet = true;
