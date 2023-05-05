@@ -35,7 +35,7 @@ public class RayCaster : MonoBehaviour
 
     void Update()
     {
-        if (hotbarValue == 0 && Input.GetMouseButtonDown(0) && pc.p_curr >= 100)
+        if (hotbarValue == 0 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 100)
         {
 
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -47,14 +47,14 @@ public class RayCaster : MonoBehaviour
                 {
                     terrainnn.GetComponent<TerrainDeformer>().DestroyTerrain(new Vector3(objectHit.point.x, objectHit.point.y + 10, objectHit.point.z), 5);
                     Instantiate(WaterSlow, objectHit.point, Quaternion.identity);
-                    pc.p_curr -= 100;
+                    pc.playerCurrency -= 100;
 
                 }
 
             }
         }
 
-        if (hotbarValue == 1 && Input.GetMouseButtonDown(0) && pc.p_curr >= 75)
+        if (hotbarValue == 1 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 75)
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -66,14 +66,14 @@ public class RayCaster : MonoBehaviour
                 {
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(TreeCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
-                    pc.p_curr -= 75;
+                    pc.playerCurrency -= 75;
                     
                 }
 
             }
         }
 
-        if(hotbarValue == 2 && Input.GetMouseButtonDown(0) && pc.p_curr >= 50)
+        if(hotbarValue == 2 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 50)
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -85,14 +85,14 @@ public class RayCaster : MonoBehaviour
                 {
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(BushCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
-                    pc.p_curr -= 50;
+                    pc.playerCurrency -= 50;
                     
                 }
 
             }
         }
 
-        if(hotbarValue == 3 && Input.GetMouseButtonDown(0) && pc.p_curr >= 25)
+        if(hotbarValue == 3 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 25)
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -104,7 +104,7 @@ public class RayCaster : MonoBehaviour
                 {
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(BeeCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
-                    pc.p_curr -= 25;
+                    pc.playerCurrency -= 25;
                     
                 }
 

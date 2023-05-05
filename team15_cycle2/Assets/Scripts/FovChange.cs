@@ -8,13 +8,14 @@ public class FovChange : MonoBehaviour
     bool fovEffect = false;
     int count = 0;
 
-    // Start is called before the first frame update
+    private TimeShift TimeShift;
+    private bool fovEffectMet = false;
+
     void Start()
     {
-        
+        TimeShift = FindObjectOfType<TimeShift>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -43,11 +44,10 @@ public class FovChange : MonoBehaviour
             }
         }
 
-
-        if(Input.GetKeyDown("p"))
+        if(TimeShift.currentTime <= 0 && !fovEffectMet)
         {
             fovEffect = true;
+            fovEffectMet = true;
         }
     }
-
 }

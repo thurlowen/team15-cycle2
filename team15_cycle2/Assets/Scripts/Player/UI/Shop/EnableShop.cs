@@ -5,22 +5,23 @@ using UnityEngine.UI;
 
 public class EnableShop : MonoBehaviour
 {
-    private bool isShop;
+    private bool showShop;
+
     private GameObject store;
     private GameObject hud;
-    private Text curr_text;
-    private PlayerCurrency curr;
-    private FirstPersonController fps_con;
+    private Text currencyText;
+    private PlayerCurrency currency;
+    private FirstPersonController fpsCon;
 
     // Start is called before the first frame update
     void Start()
     {
-        isShop = false;
+        showShop = false;
         store = GameObject.Find("Store");
         hud = GameObject.Find("HUD");
-        curr_text = GameObject.Find("ug_text").GetComponent<Text>();
-        curr = GameObject.Find("Player").GetComponent<PlayerCurrency>();
-        fps_con = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();
+        currencyText = GameObject.Find("ug_text").GetComponent<Text>();
+        currency = GameObject.Find("Player").GetComponent<PlayerCurrency>();
+        fpsCon = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();
 
     }
 
@@ -32,32 +33,32 @@ public class EnableShop : MonoBehaviour
         //     isShop = !isShop;
         // }
         
-        if(isShop == false)
+        if(showShop == false)
         {
             hud.SetActive(true);
             store.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
-            fps_con.cameraCanMove = true;
-            fps_con.playerCanMove = true;
-            fps_con.enableHeadBob = true;
+            fpsCon.cameraCanMove = true;
+            fpsCon.playerCanMove = true;
+            fpsCon.enableHeadBob = true;
         }
-        if(isShop == true)
+        if(showShop == true)
         {
             hud.SetActive(false);
             store.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
 
-            curr_text.text = "UPGRADES: "+curr.p_curr;
-            fps_con.cameraCanMove = false;
-            fps_con.playerCanMove = false;
-            fps_con.enableHeadBob = false;
+            currencyText.text = "UPGRADES: "+currency.playerCurrency;
+            fpsCon.cameraCanMove = false;
+            fpsCon.playerCanMove = false;
+            fpsCon.enableHeadBob = false;
 
         }
     }
     
     public void ShopVis()
     {
-        isShop = !isShop;
+        showShop = !showShop;
     }
 
     

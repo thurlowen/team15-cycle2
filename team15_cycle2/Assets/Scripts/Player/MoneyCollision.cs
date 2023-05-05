@@ -23,7 +23,7 @@ public class MoneyCollision : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            playerc.p_curr += 25;
+            playerc.playerCurrency += 25;
 
         }
     }

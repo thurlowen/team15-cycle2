@@ -46,39 +46,39 @@ public class TowerAttacks : MonoBehaviour
     
     public void TreeUp()
     {
-        if(curr.p_curr >= 100)
+        if(curr.playerCurrency >= 100)
         {
             treeDamage = treeDamage*1.2f;
-            curr.p_curr -= 100;
+            curr.playerCurrency -= 100;
             tree_count++;
         }
     }
     public void VenusUp()
     {
-        if(curr.p_curr >= 100)
+        if(curr.playerCurrency >= 100)
         {
             venusDamage = venusDamage*1.2f;
-            curr.p_curr -= 100;
+            curr.playerCurrency -= 100;
             venus_count++;
         }
     }
     public void BushUp()
     {
-        if(curr.p_curr >= 100)
+        if(curr.playerCurrency >= 100)
         {
             bushDamage = bushDamage*1.2f;
-            curr.p_curr -= 100;
+            curr.playerCurrency -= 100;
             bush_count++;
         }
     }
 
     public void SpeedUp()
     {
-        if(curr.p_curr >= 25)
+        if(curr.playerCurrency >= 25)
         {
             fps_con.walkSpeed = fps_con.walkSpeed*1.1f;
             fps_con.sprintSpeed = fps_con.sprintSpeed*1.1f;
-            curr.p_curr -= 25;
+            curr.playerCurrency -= 25;
             speed_count++;
 
         }
