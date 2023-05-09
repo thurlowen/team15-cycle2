@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class TimeShifter : MonoBehaviour
 {
-
-    private float maxTime = 10;
+    private float maxTime = 30;
     public float currentTime;
     public int timeState = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         ResetTimer();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Timer();

@@ -26,8 +26,6 @@ public class TimeShift : MonoBehaviour
         timeState = ts.timeState;
         Debug.Log(ts.timeState);
 
-        
-
         if (timeState == 0)
         {
             tree.gameObject.SetActive(false);
@@ -39,6 +37,5 @@ public class TimeShift : MonoBehaviour
             seed.gameObject.SetActive(false);
             tree.gameObject.SetActive(true);
         }
-    }
-        
+    }   
 }
