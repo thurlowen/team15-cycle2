@@ -17,6 +17,9 @@ public class Hotbar : MonoBehaviour
     private string bcHex = "#373737"; //resting (background) colour - dark grey
     private string scHex = "#878787"; //selected colour - light grey
 
+    //Toggle the hotbar based on timestate
+    
+
 
     void Update()
     {

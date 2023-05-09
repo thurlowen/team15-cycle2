@@ -1,3 +1,5 @@
+//Houses the timer and controls the hotkeys for development.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

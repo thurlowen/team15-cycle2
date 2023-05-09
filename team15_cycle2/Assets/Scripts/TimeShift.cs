@@ -1,3 +1,5 @@
+//gets the time from time shifter and uses it to change the state of the towers thats all.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
