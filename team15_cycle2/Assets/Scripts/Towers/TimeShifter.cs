@@ -23,7 +23,7 @@ public class TimeShifter : MonoBehaviour
         if (Input.GetKeyDown("o"))
         {
             ToPast();
-            ResetTimer();
+            
         }
 
         //Skip to future
@@ -61,11 +61,12 @@ public class TimeShifter : MonoBehaviour
         {
             timeState--;
         }
+        ResetTimer();
     }
 
     public void ResetTimer()
     {
-        currentTime = maxTime;
+        currentTime = 30;
     }
     
 }

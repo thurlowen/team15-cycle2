@@ -8,7 +8,7 @@ public class TimeShift : MonoBehaviour
 {
     private GameObject seed;
     private GameObject tree;
-    private int timeState = 0;
+    public int timeState = 0;
 
     private TimeShifter ts;
 
@@ -26,7 +26,7 @@ public class TimeShift : MonoBehaviour
     void Update()
     {
         timeState = ts.timeState;
-        Debug.Log(ts.timeState);
+        //Debug.Log(ts.timeState);
 
         if (timeState == 0)
         {
