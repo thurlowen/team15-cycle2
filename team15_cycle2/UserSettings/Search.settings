@@ -7,7 +7,7 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.DD5CDD96" = "ref:Assets/Scripts/LookAtCam.cs"
+	"last_search.DD5CDD96" = "ref:Assets/Scripts/Player/UI/Hotbar.cs"
 	"OpenInspectorPreview.DD5CDD96" = "0"
 	"currentGroup.DD5CDD96" = "scene"
 }
@@ -56,6 +56,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"ref:Assets/Scripts/Player/UI/Hotbar.cs"
 	"ref:Assets/Scripts/LookAtCam.cs"
 ]
 searchItemFavorites = [

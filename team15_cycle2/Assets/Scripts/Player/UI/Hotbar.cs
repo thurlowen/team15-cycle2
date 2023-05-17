@@ -13,42 +13,60 @@ public class Hotbar : MonoBehaviour
     //Creates an event for switching between different towers
     public event Action<int> onCurrentSlotChanged;
 
+    private TimeShifter ts;
+    private Canvas hotbarElement;
+
     //Hotbar colours
     private string bcHex = "#373737"; //resting (background) colour - dark grey
     private string scHex = "#878787"; //selected colour - light grey
 
     //Toggle the hotbar based on timestate
-    
+    void Start()
+    {
+        ts = GameObject.Find("TowerDamage").GetComponent<TimeShifter>();
 
+        hotbarElement = gameObject.AddComponent<Canvas>();
+        hotbarElement.enabled = true;
+    }
 
     void Update()
     {
-        //Toggles between the 4 slots
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (ts.isHotbar == true)
+        {
+            hotbarElement.enabled = true;
+            
+            //Toggles between the 4 slots
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        if (scroll > 0f)
-        {
-            currentSlot += 1;
-            if (currentSlot >= maxSlots)
+            if (scroll > 0f)
             {
-                currentSlot = maxSlots;
+                currentSlot += 1;
+                if (currentSlot >= maxSlots)
+                {
+                    currentSlot = maxSlots;
+                }
             }
-        }
-        else if (scroll < 0f)
-        {
-            currentSlot -= 1;
-            if (currentSlot <= minSlots)
+            else if (scroll < 0f)
             {
-                currentSlot = minSlots;
+                currentSlot -= 1;
+                if (currentSlot <= minSlots)
+                {
+                    currentSlot = minSlots;
+                }
             }
-        }
         
-        changeSlotColour();
+            changeSlotColour();
 
-        //Raise the above event whenever the hotbar value changes so the RayCaster script knows whats happening
-        if (onCurrentSlotChanged != null)
+            //Raise the above event whenever the hotbar value changes so the RayCaster script knows whats happening
+            if (onCurrentSlotChanged != null)
+            {
+                onCurrentSlotChanged(currentSlot);
+            }
+        }
+
+        if (ts.isHotbar == false)
         {
-            onCurrentSlotChanged(currentSlot);
+            hotbarElement.enabled = false;
         }
     }
 

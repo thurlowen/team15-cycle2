@@ -11,18 +11,22 @@ public class RayCaster : MonoBehaviour
     public GameObject terrainnn;
     public GameObject WaterSlow;
 
+    private Hotbar hb;
     private int hotbarValue;
     private PlayerCurrency pc;
+    private TimeShifter ts;
 
     
     // Start is called before the first frame update
     void Start()
     {
         //Get a reference to the hotbar script
-        Hotbar hotbar = GameObject.FindWithTag("Hotbar").GetComponent<Hotbar>();
-        hotbar.onCurrentSlotChanged += handleCurrentSlotChanged;
-        hotbarValue = hotbar.currentSlot;
+        hb = GameObject.Find("Hotbar").GetComponent<Hotbar>();
+        hb.onCurrentSlotChanged += handleCurrentSlotChanged;
+        hotbarValue = hb.currentSlot;
         pc = this.GetComponentInParent<PlayerCurrency>();
+
+        ts = GameObject.Find("TowerDamage").GetComponent<TimeShifter>();
     }
 
     void handleCurrentSlotChanged(int newSlot)
@@ -35,7 +39,7 @@ public class RayCaster : MonoBehaviour
 
     void Update()
     {
-        if (hotbarValue == 0 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 100)
+        if (hotbarValue == 0 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 100 && ts.isHotbar == true)
         {
 
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -54,7 +58,7 @@ public class RayCaster : MonoBehaviour
             }
         }
 
-        if (hotbarValue == 1 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 75)
+        if (hotbarValue == 1 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 75 && ts.isHotbar == true)
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -73,7 +77,7 @@ public class RayCaster : MonoBehaviour
             }
         }
 
-        if(hotbarValue == 2 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 50)
+        if(hotbarValue == 2 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 50 && ts.isHotbar == true)
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -92,7 +96,7 @@ public class RayCaster : MonoBehaviour
             }
         }
 
-        if(hotbarValue == 3 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 25)
+        if(hotbarValue == 3 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 25 && ts.isHotbar == true)
         {
             
             Vector3 fwd = transform.TransformDirection(Vector3.forward);

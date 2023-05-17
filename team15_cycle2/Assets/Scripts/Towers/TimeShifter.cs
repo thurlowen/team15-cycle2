@@ -6,13 +6,20 @@ using UnityEngine;
 
 public class TimeShifter : MonoBehaviour
 {
-    private float maxTime = 30;
+    //private float maxTime = 30;
     public float currentTime;
     public int timeState = 0;
+
+    public bool isHotbar;
+    public bool isAttack;
 
     void Start()
     {
         ResetTimer();
+
+        //Set up player controls at start of game!!
+        isHotbar = true;
+        isAttack = false;
     }
 
     void Update()
@@ -23,7 +30,6 @@ public class TimeShifter : MonoBehaviour
         if (Input.GetKeyDown("o"))
         {
             ToPast();
-            
         }
 
         //Skip to future
@@ -52,6 +58,9 @@ public class TimeShifter : MonoBehaviour
         if (timeState == 0)
         {
             timeState++;
+
+            isHotbar = false;
+            isAttack = true;
         }
     }
 
@@ -60,6 +69,9 @@ public class TimeShifter : MonoBehaviour
         if (timeState == 1)
         {
             timeState--;
+
+            isAttack = false;
+            isHotbar = true;
         }
         ResetTimer();
     }
@@ -68,5 +80,4 @@ public class TimeShifter : MonoBehaviour
     {
         currentTime = 30;
     }
-    
 }
