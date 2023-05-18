@@ -11,13 +11,13 @@ public class RayCaster : MonoBehaviour
     public GameObject terrainnn;
     public GameObject WaterSlow;
 
+    public GameObject NormalAttackBullet;
+
     private Hotbar hb;
     private int hotbarValue;
     private PlayerCurrency pc;
     private TimeShifter ts;
 
-    
-    // Start is called before the first frame update
     void Start()
     {
         //Get a reference to the hotbar script
@@ -34,14 +34,13 @@ public class RayCaster : MonoBehaviour
         hotbarValue = newSlot;
     }
 
-    // Update is called once per frame
+
     RaycastHit objectHit; 
 
     void Update()
     {
         if (hotbarValue == 0 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 100 && ts.isHotbar == true)
         {
-
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
             if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
@@ -54,13 +53,11 @@ public class RayCaster : MonoBehaviour
                     pc.playerCurrency -= 100;
 
                 }
-
             }
         }
 
         if (hotbarValue == 1 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 75 && ts.isHotbar == true)
         {
-            
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
             if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
@@ -71,15 +68,12 @@ public class RayCaster : MonoBehaviour
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(TreeCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
                     pc.playerCurrency -= 75;
-                    
                 }
-
             }
         }
 
         if(hotbarValue == 2 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 50 && ts.isHotbar == true)
         {
-            
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
             if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
@@ -90,15 +84,12 @@ public class RayCaster : MonoBehaviour
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(BushCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
                     pc.playerCurrency -= 50;
-                    
                 }
-
             }
         }
 
         if(hotbarValue == 3 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 25 && ts.isHotbar == true)
         {
-            
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
             if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
@@ -109,11 +100,22 @@ public class RayCaster : MonoBehaviour
                     RayLocation = new Vector3(objectHit.point.x, objectHit.point.y, objectHit.point.z);
                     Instantiate(BeeCreator, new Vector3(RayLocation.x,2,RayLocation.z), Quaternion.identity);
                     pc.playerCurrency -= 25;
-                    
                 }
-
             }
         }
-        
+
+        //Normal attack
+        if (Input.GetMouseButtonDown(0) && ts.isAttack == true)
+        {
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+            
+        }
+
+        //Secondary attack
+        if (Input.GetMouseButtonDown(1) && ts.isAttack == true)
+        {
+
+        }
     }
 }
