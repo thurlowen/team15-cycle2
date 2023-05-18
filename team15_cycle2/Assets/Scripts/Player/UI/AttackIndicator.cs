@@ -13,7 +13,7 @@ public class AttackIndicator : MonoBehaviour
     {
         ts = GameObject.Find("TowerDamage").GetComponent<TimeShifter>();
         
-        indicatorElement.gameObject.AddComponent<Canvas>();
+        indicatorElement = gameObject.AddComponent<Canvas>();
         indicatorElement.enabled = false;
     }
 
