@@ -25,7 +25,7 @@ public class MoveTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(treeLocation);
+        transform.LookAt(new Vector3(treeLocation.position.x, 2, treeLocation.position.z));
 
         TimeState = TimeShifter.timeState;
         agent.destination = treeLocation.transform.position;

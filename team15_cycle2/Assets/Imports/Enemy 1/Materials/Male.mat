@@ -10,7 +10,9 @@ Material:
   m_Name: Male
   m_Shader: {fileID: 4800000, guid: 5398f14cd241f2649988529db4480d1c, type: 3}
   m_ValidKeywords:
+  - _REFLECTIONS_ON
   - _SHADING_ON
+  - _SPECULAR_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -325,7 +327,7 @@ Material:
     - _ApplyAlbedoTint: 0
     - _ApplyOutlineEmiss: 0
     - _ApplyOutlineLighting: 0
-    - _AttenSmoothing: 1
+    - _AttenSmoothing: 0
     - _AudioLinkBCDissolveBand: 0
     - _AudioLinkBCDissolveMultiplier: 0
     - _AudioLinkDissolveBand: 0
@@ -393,13 +395,13 @@ Material:
     - _BlendMode: 0
     - _Brightness: 1
     - _BumpScale: 1
-    - _ClampAdditive: 1
+    - _ClampAdditive: 0
     - _ClearCoat: 0
     - _ClipRimStr: 1
     - _ClipRimWidth: 1
     - _ClonePattern: 0
     - _CloneToggle: 0
-    - _ColorPreservation: 1
+    - _ColorPreservation: 0
     - _Contrast: 1
     - _CrossMode: 0
     - _Crossfade: 0.1
@@ -491,7 +493,7 @@ Material:
     - _Hue: 0
     - _IgnoreFilterMask: 0
     - _IndirectAO: 0
-    - _IndirectCont: 0.5
+    - _IndirectCont: 0.4
     - _Instability: 0
     - _Invert: 0
     - _Iridescence: 0
@@ -537,7 +539,7 @@ Material:
     - _NearClipToggle: 0
     - _NoiseOctaves: 1
     - _NoiseSpeed: 0.5
-    - _NonlinearSHToggle: 1
+    - _NonlinearSHToggle: 0
     - _OcclusionChannel: 2
     - _OcclusionStrength: 1
     - _OutlineCulling: 1
@@ -567,19 +569,19 @@ Material:
     - _RTSelfShadow: 1
     - _RampPos: 0
     - _RampWeight: 0
-    - _RampWidth0: 0.005
-    - _RampWidth1: 0.5
+    - _RampWidth0: 1
+    - _RampWidth1: 1
     - _Range: 10
     - _ReactThresh: 0.5
     - _ReactToggle: 0
-    - _RealtimeSpec: 0
+    - _RealtimeSpec: 1
     - _ReflCubeFallback: 0
     - _ReflRough: 0.5
     - _ReflStepping: 0
     - _ReflSteps: 7
     - _ReflUseRough: 0
     - _ReflectionStr: 1
-    - _Reflections: 0
+    - _Reflections: 1
     - _Refraction: 0
     - _RefractionBlur: 0
     - _RefractionBlurRough: 0
@@ -607,7 +609,7 @@ Material:
     - _RoughRemapMin: 0
     - _RoughnessChannel: 1
     - _RoughnessFiltering: 0
-    - _SHStr: 0
+    - _SHStr: 1
     - _SRad: 0.02
     - _SSR: 0
     - _SaturateEP: 1
@@ -621,10 +623,10 @@ Material:
     - _Screenspace: 0
     - _ScrubPos: 1
     - _ScrubPos1: 1
-    - _ShadowConditions: 0
+    - _ShadowConditions: 1
     - _ShadowDithering: 0
-    - _ShadowMode: 0
-    - _ShadowStr: 0.5
+    - _ShadowMode: 1
+    - _ShadowStr: 1
     - _SharpSpecStr: 1
     - _SharpSpecular: 0
     - _ShatterClones: 0
@@ -645,7 +647,7 @@ Material:
     - _SpecRough: 0.5
     - _SpecStr: 1
     - _SpecUseRough: 0
-    - _Specular: 0
+    - _Specular: 1
     - _SpecularHighlights: 1
     - _SpritesheetBlending: 6
     - _SpritesheetBlending1: 6
