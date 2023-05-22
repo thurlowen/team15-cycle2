@@ -16,6 +16,7 @@ TagManager:
   - 3Venus
   - Money
   - Time
+  - EnemyDMG
   layers:
   - Default
   - TransparentFX

@@ -26,7 +26,7 @@ public class TreeHealth : MonoBehaviour
 
     void OnCollisionStay(Collision col)
     {
-        if(col.gameObject.tag == "Enemy")
+        if(col.gameObject.tag == "EnemyDMG")
         {
             TreeHealthNo = TreeHealthNo - 0.1f;
         }
