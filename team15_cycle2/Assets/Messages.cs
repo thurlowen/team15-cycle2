@@ -31,7 +31,7 @@ public class Messages : MonoBehaviour
     {
         for (int i = 0; i < text_update.Length; i++) 
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             countDownText.text += text_update[i];
         }
     }

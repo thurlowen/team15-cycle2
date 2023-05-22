@@ -17,9 +17,11 @@ public class RayCaster : MonoBehaviour
     private int hotbarValue;
     private PlayerCurrency pc;
     private TimeShifter ts;
+    private Messages msg;
 
     void Start()
     {
+        msg = FindObjectOfType<Messages>();
         //Get a reference to the hotbar script
         hb = GameObject.Find("Hotbar").GetComponent<Hotbar>();
         hb.onCurrentSlotChanged += handleCurrentSlotChanged;
@@ -39,6 +41,21 @@ public class RayCaster : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0) && ts.isAttack == false)
+        {
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+            if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
+            {
+                //do something if hit object ie
+                if (objectHit.collider.gameObject.tag != "Ground")
+                {
+                    msg.text_update = "Cant place here.";
+                    msg.TextLog();
+                }
+            }
+        }
+
         if (hotbarValue == 0 && Input.GetMouseButtonDown(0) && pc.playerCurrency >= 100 && ts.isHotbar == true)
         {
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
