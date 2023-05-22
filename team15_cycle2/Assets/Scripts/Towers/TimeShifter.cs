@@ -29,6 +29,10 @@ public class TimeShifter : MonoBehaviour
 
     void Update()
     {
+        if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && timeState == 1) 
+        {
+            ToPast();
+        }
         Timer();
 
         //Go to past
@@ -46,7 +50,7 @@ public class TimeShifter : MonoBehaviour
 
     public void Timer()
     {
-        if (currentTime > 0 && timeState == 0)
+        if (currentTime > 0)
         {
             currentTime -= 1 * Time.deltaTime;
             //Debug.Log(currentTime);
@@ -56,6 +60,7 @@ public class TimeShifter : MonoBehaviour
         {
             ToFuture();
         }
+    
     }
 
     public void ToFuture()

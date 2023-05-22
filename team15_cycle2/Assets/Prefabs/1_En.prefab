@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1239543956}
   m_Layer: 0
   m_Name: AtkCol
-  m_TagString: Untagged
+  m_TagString: EnemyDMG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -14741,10 +14741,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1239543954, guid: f9149d92d9bcd4f8295b0fd6ab95df39, type: 3}
-      propertyPath: m_TagString
-      value: EnemyDMG
-      objectReference: {fileID: 0}
     - target: {fileID: 6388201986089148034, guid: f9149d92d9bcd4f8295b0fd6ab95df39, type: 3}
       propertyPath: m_Name
       value: 1_En
