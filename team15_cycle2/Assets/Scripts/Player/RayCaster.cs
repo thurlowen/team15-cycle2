@@ -19,8 +19,11 @@ public class RayCaster : MonoBehaviour
     private TimeShifter ts;
     private Messages msg;
 
+    private EnableShop es;
+
     void Start()
     {
+        es = FindObjectOfType<EnableShop>();
         msg = FindObjectOfType<Messages>();
         //Get a reference to the hotbar script
         hb = GameObject.Find("Hotbar").GetComponent<Hotbar>();
@@ -48,7 +51,7 @@ public class RayCaster : MonoBehaviour
             if (Physics.Raycast(transform.position, fwd, out objectHit, 5))
             {
                 //do something if hit object ie
-                if (objectHit.collider.gameObject.tag != "Ground")
+                if (objectHit.collider.gameObject.tag != "Ground" && es.showShop == false)
                 {
                     msg.text_update = "Cant place here.";
                     msg.TextLog();

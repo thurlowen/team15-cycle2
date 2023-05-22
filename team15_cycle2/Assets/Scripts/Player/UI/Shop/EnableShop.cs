@@ -5,17 +5,23 @@ using UnityEngine.UI;
 
 public class EnableShop : MonoBehaviour
 {
-    private bool showShop;
+    public bool showShop;
 
     private GameObject store;
     private GameObject hud;
     private Text currencyText;
     private PlayerCurrency currency;
     private FirstPersonController fpsCon;
+    private Messages msg;
+
+    public GameObject direction;
+    private TimeShifter timeShifter;
 
     // Start is called before the first frame update
     void Start()
     {
+        timeShifter = FindObjectOfType<TimeShifter>();
+        msg = FindObjectOfType<Messages>();
         showShop = false;
         store = GameObject.Find("Store");
         hud = GameObject.Find("HUD");
@@ -41,6 +47,7 @@ public class EnableShop : MonoBehaviour
             fpsCon.cameraCanMove = true;
             fpsCon.playerCanMove = true;
             fpsCon.enableHeadBob = true;
+
         }
         if(showShop == true)
         {
@@ -59,6 +66,19 @@ public class EnableShop : MonoBehaviour
     public void ShopVis()
     {
         showShop = !showShop;
+
+        if(showShop == false)
+        {
+            msg.text_update = "";
+            msg.TextLog();
+            msg.text_update = "Set your defences.";
+            msg.TextLog();
+        }
+        direction.SetActive(false);
+        if(direction.activeSelf == false)
+        {
+            timeShifter.currentTime = 30;
+        }
     }
 
     

@@ -20,6 +20,7 @@ public class TimeShifter : MonoBehaviour
     {
         msg = FindObjectOfType<Messages>();
         ResetTimer();
+        currentTime = 90;
 
         //Set up player controls at start of game!!
         isHotbar = true;
@@ -61,6 +62,8 @@ public class TimeShifter : MonoBehaviour
     {
         if (timeState == 0)
         {
+            msg.text_update = "";
+            msg.TextLog();
             msg.text_update = "They are coming.";
             msg.TextLog();
 
@@ -75,6 +78,8 @@ public class TimeShifter : MonoBehaviour
     {
         if (timeState == 1)
         {
+            msg.text_update = "";
+            msg.TextLog();
             msg.text_update = "Set your defences.";
             msg.TextLog();
 

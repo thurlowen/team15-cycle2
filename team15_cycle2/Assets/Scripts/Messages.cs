@@ -13,6 +13,9 @@ public class Messages : MonoBehaviour
     {
         countDownText = GetComponentInChildren<Text>();
         countDownText.text = "";
+
+        text_update = "";
+        TextLog();
         text_update = "Go to Gaia.";
         TextLog();
     }
