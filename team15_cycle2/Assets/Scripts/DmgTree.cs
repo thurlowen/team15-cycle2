@@ -8,10 +8,12 @@ public class DmgTree : MonoBehaviour
     private SphereCollider childSphereCollider;
     UnityEngine.AI.NavMeshAgent agent;
     private TreeHealth TreeHealth;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         TreeHealth = FindObjectOfType<TreeHealth>();
         agent = GetComponentInParent<UnityEngine.AI.NavMeshAgent>();
         //childObject = GetChildByName("AtkCol");
@@ -37,6 +39,7 @@ public class DmgTree : MonoBehaviour
             TreeHealth.TreeHealthNo = TreeHealth.TreeHealthNo - 0.1f;
 
             //CHANGE ANIMATION HERE
+            anim.Play("Attack",0,0);
         }
     }
 }
