@@ -9,6 +9,8 @@ public class Messages : MonoBehaviour
     private TimeShifter TimeShifter;
     public string text_update;
 
+    private bool isRunning = false;
+
     void Start()
     {
         countDownText = GetComponentInChildren<Text>();
@@ -26,17 +28,23 @@ public class Messages : MonoBehaviour
     }
     public void TextLog()
     {
-        countDownText.text = "";
-        StartCoroutine(ExampleCoroutine());
+        
+        if(isRunning==false)
+        {
+            countDownText.text = "";
+            StartCoroutine(ExampleCoroutine());
+        }
 
     }
     public IEnumerator ExampleCoroutine()
     {
+        isRunning = true;
         for (int i = 0; i < text_update.Length; i++) 
         {
             yield return new WaitForSeconds(0.05f);
             countDownText.text += text_update[i];
         }
+        isRunning = false;
     }
     
 
