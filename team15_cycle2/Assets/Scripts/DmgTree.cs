@@ -22,7 +22,7 @@ public class DmgTree : MonoBehaviour
         childObject = transform.Find("AtkCol");
         childSphereCollider = childObject.GetComponent<SphereCollider>();
 
-        flame_enable.Stop();
+        flame_enable.Pause();
         
     }
 
