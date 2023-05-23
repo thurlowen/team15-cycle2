@@ -14,10 +14,17 @@ public class TimeShifter : MonoBehaviour
     public bool isAttack;
 
     private Messages msg;
+    private Waves waves;
+    public int waveCount = 0;
+    private EnemySpawner enSpawn;
+    private int lastWave = 3;
+    private int enAmount;
     
 
     void Start()
     {
+        enSpawn = FindObjectOfType<EnemySpawner>();
+        waves = FindObjectOfType<Waves>();
         msg = FindObjectOfType<Messages>();
         ResetTimer();
         currentTime = 90;
@@ -29,8 +36,17 @@ public class TimeShifter : MonoBehaviour
 
     void Update()
     {
+        waves.waveText.text = "Wave: "+waveCount;
         if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && timeState == 1) 
         {
+            
+            enAmount = Random.Range(lastWave, waveCount*3);
+            for(int i=0; i<enAmount; i++)
+            {
+                enSpawn.SpwnEn();
+
+            }
+            lastWave = enAmount;
             ToPast();
         }
         Timer();
@@ -65,6 +81,7 @@ public class TimeShifter : MonoBehaviour
 
     public void ToFuture()
     {
+        waveCount++;
         if (timeState == 0)
         {
             msg.text_update = "";
