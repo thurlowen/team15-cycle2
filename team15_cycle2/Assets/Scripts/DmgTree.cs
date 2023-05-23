@@ -9,16 +9,20 @@ public class DmgTree : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     private TreeHealth TreeHealth;
     private Animator anim;
+    private ParticleSystem flame_enable;
 
     // Start is called before the first frame update
     void Start()
     {
+        flame_enable = GetComponentInChildren<ParticleSystem>();
         anim = GetComponentInChildren<Animator>();
         TreeHealth = FindObjectOfType<TreeHealth>();
         agent = GetComponentInParent<UnityEngine.AI.NavMeshAgent>();
         //childObject = GetChildByName("AtkCol");
         childObject = transform.Find("AtkCol");
         childSphereCollider = childObject.GetComponent<SphereCollider>();
+
+        flame_enable.Stop();
         
     }
 
@@ -40,6 +44,7 @@ public class DmgTree : MonoBehaviour
 
             //CHANGE ANIMATION HERE
             anim.Play("Attack",0,0);
+            flame_enable.Play();
         }
     }
 }
