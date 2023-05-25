@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     private Vector3 bulletSpreadVariance = new Vector3(0.1f, 0.1f, 0.1f);
 
     [SerializeField]
-    private ParticleSystem shootingSystem;
+    private ParticleSystem muzzleFlash;
     [SerializeField]
     private ParticleSystem impactParticleSystem;
 
@@ -27,16 +27,18 @@ public class Gun : MonoBehaviour
     {
         if (lastShootTime + shootDelay < Time.time)
         {
-            shootingSystem.Play();
+            muzzleFlash.Play();
 
             Vector3 direction = GetDirection();
 
+            //Raycast out forwards (where the player is looking)
             if (Physics.Raycast(bulletSpawnPoint.position, direction, out RaycastHit hit, float.MaxValue, mask))
             {
+                //Draw a trail that follows the path of the raycast
                 TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
-
                 StartCoroutine(SpawnTrail(trail, hit));
 
+                //So we dont shoot at the frame rate
                 lastShootTime = Time.time;
             }
         }
@@ -44,7 +46,7 @@ public class Gun : MonoBehaviour
 
     private Vector3 GetDirection()
     {
-        Vector3 direction = transform.forward;
+        Vector3 direction = transform.forward; // possibility for things to go wrong
 
         if (addBulletSpread)
         {
@@ -56,7 +58,6 @@ public class Gun : MonoBehaviour
 
             direction.Normalize();
         }
-
         return direction;
     }
 
@@ -65,13 +66,15 @@ public class Gun : MonoBehaviour
         float time = 0;
         Vector3 startPosition = trail.transform.position;
 
-        while (time< 1)
+        while (time < 1)
         {
+            //Moes the trail from the muzzle to the hit point stored in "hit" at a certain time
             trail.transform.position = Vector3.Lerp(startPosition, hit.point, time);
             time += Time.deltaTime / trail.time;
 
             yield return null;
         }
+        //Ensures the trail ends at the hitpoint - maybe use for detection for enemy death
         trail.transform.position = hit.point;
         Instantiate(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
 
