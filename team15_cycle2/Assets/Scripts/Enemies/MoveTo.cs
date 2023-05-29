@@ -10,6 +10,8 @@ public class MoveTo : MonoBehaviour
     private int TimeState;
     private TimeShifter TimeShifter;
 
+    public bool paused = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,14 @@ public class MoveTo : MonoBehaviour
         {
             TimeState++;
         }
+
+        pause();
+
+        if (paused)
+        {
+            agent.speed = 0f;
+
+        }
     }
 
     void OnTriggerEnter(Collider collision)
@@ -63,6 +73,14 @@ public class MoveTo : MonoBehaviour
         {
             agent.velocity = new Vector3(-1f,0,0);
             agent.acceleration = 8f;
+        }
+    }
+
+    private void pause()
+    {
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            paused = !paused;
         }
     }
 }

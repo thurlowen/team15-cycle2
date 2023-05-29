@@ -8,7 +8,7 @@ public class Hotbar : MonoBehaviour
 {
     public int currentSlot;
     private int maxSlots = 3;
-    private int minSlots = 0;
+    //private int minSlots = 0;
 
     //Creates an event for switching between different towers
     public event Action<int> onCurrentSlotChanged;
@@ -38,7 +38,7 @@ public class Hotbar : MonoBehaviour
             //Toggles between the 4 slots
             float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-            if (scroll > 0f)
+/*            if (scroll > 0f)
             {
                 currentSlot += 1;
                 if (currentSlot >= maxSlots)
@@ -53,8 +53,32 @@ public class Hotbar : MonoBehaviour
                 {
                     currentSlot = minSlots;
                 }
+            }*/
+
+
+            if (scroll < 0)
+            {
+                if (currentSlot < maxSlots)
+                {
+                    currentSlot++;
+                }
+                else
+                {
+                    currentSlot = 0;
+                }
             }
-        
+            else if (scroll > 0)
+            {
+                if (currentSlot > 0)
+                {
+                    currentSlot--;
+                }
+                else
+                {
+                    currentSlot = maxSlots;
+                }
+            }
+
             changeSlotColour();
 
             //Raise the above event whenever the hotbar value changes so the RayCaster script knows whats happening

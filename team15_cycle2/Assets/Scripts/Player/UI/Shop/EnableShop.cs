@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class EnableShop : MonoBehaviour
 {
-    public bool showShop;
-
     private GameObject store;
     private GameObject hud;
     private Text currencyText;
@@ -16,6 +14,9 @@ public class EnableShop : MonoBehaviour
 
     public GameObject direction;
     private TimeShifter timeShifter;
+
+    private GameObject pauseMenu;
+    public bool showShop = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +30,15 @@ public class EnableShop : MonoBehaviour
         currency = GameObject.Find("Player").GetComponent<PlayerCurrency>();
         fpsCon = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();
 
+        pauseMenu = GameObject.Find("Menu");
+        showShop = false; //GetComponent<MenuManager>().pauseMenuActive;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        
         // if(Input.GetKeyDown("m"))
         // {
         //     isShop = !isShop;
@@ -47,7 +52,7 @@ public class EnableShop : MonoBehaviour
             fpsCon.cameraCanMove = true;
             fpsCon.playerCanMove = true;
             fpsCon.enableHeadBob = true;
-
+            
         }
         if(showShop == true)
         {
