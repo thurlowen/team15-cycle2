@@ -15,13 +15,10 @@ public class EnableShop : MonoBehaviour
     public GameObject direction;
     private TimeShifter timeShifter;
 
-<<<<<<< Updated upstream
     private GameObject pauseMenu;
     public bool showShop = false;
-=======
     private TreeHealth TreeHealth;
     public GameObject endscreen;
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
