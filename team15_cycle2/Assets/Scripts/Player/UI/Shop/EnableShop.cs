@@ -15,8 +15,13 @@ public class EnableShop : MonoBehaviour
     public GameObject direction;
     private TimeShifter timeShifter;
 
+<<<<<<< Updated upstream
     private GameObject pauseMenu;
     public bool showShop = false;
+=======
+    private TreeHealth TreeHealth;
+    public GameObject endscreen;
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +34,7 @@ public class EnableShop : MonoBehaviour
         currencyText = GameObject.Find("ug_text").GetComponent<Text>();
         currency = GameObject.Find("Player").GetComponent<PlayerCurrency>();
         fpsCon = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();
+        TreeHealth = FindObjectOfType<TreeHealth>();
 
         pauseMenu = GameObject.Find("Menu");
         showShop = false; //GetComponent<MenuManager>().pauseMenuActive;
@@ -65,6 +71,12 @@ public class EnableShop : MonoBehaviour
             fpsCon.playerCanMove = false;
             fpsCon.enableHeadBob = false;
 
+        }
+
+        if(TreeHealth.TreeHealthNo <= 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            endscreen.SetActive(true);
         }
     }
     
