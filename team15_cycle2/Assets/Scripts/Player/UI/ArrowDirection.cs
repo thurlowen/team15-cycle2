@@ -5,14 +5,14 @@ using UnityEngine;
 public class ArrowDirection : MonoBehaviour
 {
     private GameObject EndTree;
+    private MenuManager MenuManager;
 
-    // Start is called before the first frame update
     void Start()
     {
         EndTree = GameObject.FindGameObjectWithTag("EndTree");
+        MenuManager = GameObject.Find("Menu").GetComponent<MenuManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.eulerAngles = new Vector3(90,0,0);

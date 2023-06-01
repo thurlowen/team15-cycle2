@@ -38,22 +38,22 @@ public class Hotbar : MonoBehaviour
             //Toggles between the 4 slots
             float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-/*            if (scroll > 0f)
-            {
-                currentSlot += 1;
-                if (currentSlot >= maxSlots)
-                {
-                    currentSlot = maxSlots;
-                }
-            }
-            else if (scroll < 0f)
-            {
-                currentSlot -= 1;
-                if (currentSlot <= minSlots)
-                {
-                    currentSlot = minSlots;
-                }
-            }*/
+            //if (scroll > 0f)
+            //{
+            //    currentSlot += 1;
+            //    if (currentSlot >= maxSlots)
+            //    {
+            //        currentSlot = maxSlots;
+            //    }
+            //}
+            //else if (scroll < 0f)
+            //{
+            //    currentSlot -= 1;
+            //    if (currentSlot <= minSlots)
+            //    {
+            //        currentSlot = minSlots;
+            //    }
+
 
 
             if (scroll < 0)

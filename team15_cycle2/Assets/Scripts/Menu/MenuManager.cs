@@ -4,22 +4,14 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    //shop
-    //hotbar
-    //attack indicator
-    //sprintbar
-    //persistant - timer, top meesages
-    //direction
-
-    public bool pauseMenuActive = false;
+    public bool pauseMenuActive = true;
 
     void Update()
     {
-        ActivatePauseMenu();
-        
+        TogglePauseMenu();
     }
 
-    private void ActivatePauseMenu()
+    private void TogglePauseMenu()
     {
         if (Input.GetKeyUp(KeyCode.B)) //MUST CHANGE TO esc
         {
@@ -27,5 +19,4 @@ public class MenuManager : MonoBehaviour
             Debug.Log("Paused: " + (pauseMenuActive ? "T" : "F"));
         }
     }
-
 }

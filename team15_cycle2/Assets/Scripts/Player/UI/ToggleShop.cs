@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToggleHUD : MonoBehaviour
+public class ToggleShop : MonoBehaviour
 {
-    private Canvas HUD;
+    private Canvas Shop;
     private MenuManager MenuManager;
 
     void Start()
     {
-        HUD = gameObject.GetComponent<Canvas>();
-        HUD.enabled = true;
+        Shop = gameObject.GetComponent<Canvas>();
+        Shop.enabled = true;
 
         MenuManager = GameObject.Find("Menu").GetComponent<MenuManager>();
     }
 
     void Update()
     {
-        HUD.enabled = !MenuManager.pauseMenuActive;
+        Shop.enabled = !MenuManager.pauseMenuActive;
     }
 }
