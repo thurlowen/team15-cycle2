@@ -15,6 +15,7 @@ public class Hotbar : MonoBehaviour
 
     private TimeShifter ts;
     private Canvas hotbarElement;
+    private MenuManager MenuManager;
 
     //Hotbar colours
     private string bcHex = "#373737"; //resting (background) colour - dark grey
@@ -27,70 +28,75 @@ public class Hotbar : MonoBehaviour
 
         hotbarElement = gameObject.AddComponent<Canvas>();
         hotbarElement.enabled = true;
+
+        MenuManager = FindFirstObjectByType<MenuManager>();
     }
 
     void Update()
     {
-        if (ts.isHotbar == true)
+        if (!MenuManager.pauseMenuActive)
         {
-            hotbarElement.enabled = true;
+            if (ts.isHotbar == true)
+            {
+                hotbarElement.enabled = true;
             
-            //Toggles between the 4 slots
-            float scroll = Input.GetAxis("Mouse ScrollWheel");
+                //Toggles between the 4 slots
+                float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-            //if (scroll > 0f)
-            //{
-            //    currentSlot += 1;
-            //    if (currentSlot >= maxSlots)
-            //    {
-            //        currentSlot = maxSlots;
-            //    }
-            //}
-            //else if (scroll < 0f)
-            //{
-            //    currentSlot -= 1;
-            //    if (currentSlot <= minSlots)
-            //    {
-            //        currentSlot = minSlots;
-            //    }
+                //if (scroll > 0f)
+                //{
+                //    currentSlot += 1;
+                //    if (currentSlot >= maxSlots)
+                //    {
+                //        currentSlot = maxSlots;
+                //    }
+                //}
+                //else if (scroll < 0f)
+                //{
+                //    currentSlot -= 1;
+                //    if (currentSlot <= minSlots)
+                //    {
+                //        currentSlot = minSlots;
+                //    }
 
 
 
-            if (scroll < 0)
-            {
-                if (currentSlot < maxSlots)
+                if (scroll < 0)
                 {
-                    currentSlot++;
+                    if (currentSlot < maxSlots)
+                    {
+                        currentSlot++;
+                    }
+                    else
+                    {
+                        currentSlot = 0;
+                    }
                 }
-                else
+                else if (scroll > 0)
                 {
-                    currentSlot = 0;
+                    if (currentSlot > 0)
+                    {
+                        currentSlot--;
+                    }
+                    else
+                    {
+                        currentSlot = maxSlots;
+                    }
+                }
+
+                changeSlotColour();
+
+                //Raise the above event whenever the hotbar value changes so the RayCaster script knows whats happening
+                if (onCurrentSlotChanged != null)
+                {
+                    onCurrentSlotChanged(currentSlot);
                 }
             }
-            else if (scroll > 0)
+
+            if (ts.isHotbar == false)
             {
-                if (currentSlot > 0)
-                {
-                    currentSlot--;
-                }
-                else
-                {
-                    currentSlot = maxSlots;
-                }
+                hotbarElement.enabled = false;
             }
-
-            changeSlotColour();
-
-            //Raise the above event whenever the hotbar value changes so the RayCaster script knows whats happening
-            if (onCurrentSlotChanged != null)
-            {
-                onCurrentSlotChanged(currentSlot);
-            }
-        }
-
-        if (ts.isHotbar == false)
-        {
-            hotbarElement.enabled = false;
         }
     }
 
