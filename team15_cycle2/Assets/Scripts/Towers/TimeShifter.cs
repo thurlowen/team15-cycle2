@@ -19,6 +19,8 @@ public class TimeShifter : MonoBehaviour
     private EnemySpawner enSpawn;
     private int lastWave = 3;
     private int enAmount;
+
+    private MenuManager MenuManager;
     
 
     void Start()
@@ -27,11 +29,13 @@ public class TimeShifter : MonoBehaviour
         waves = FindObjectOfType<Waves>();
         msg = FindObjectOfType<Messages>();
         ResetTimer();
-        currentTime = 90;
+        currentTime = 60;
 
         //Set up player controls at start of game!!
         isHotbar = true;
         isAttack = false;
+
+        MenuManager = FindObjectOfType<MenuManager>();
     }
 
     void Update()
@@ -66,16 +70,21 @@ public class TimeShifter : MonoBehaviour
 
     public void Timer()
     {
-        if (currentTime > 0)
+        if (!MenuManager.pauseMenuActive)
         {
-            currentTime -= 1 * Time.deltaTime;
-            //Debug.Log(currentTime);
-        }
+            if (currentTime > 0)
+            {
+                currentTime -= 1 * Time.deltaTime;
+                Debug.Log(currentTime);
+            }
 
-        if (currentTime <= 0 && timeState == 0)
-        {
-            ToFuture();
+            if (currentTime <= 0 && timeState == 0)
+            {
+                ToFuture();
+            }
         }
+        
+        
     
     }
 

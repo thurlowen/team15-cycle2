@@ -9,6 +9,7 @@ public class MoveTo : MonoBehaviour
     NavMeshAgent agent;
     private int TimeState;
     private TimeShifter TimeShifter;
+    private MenuManager MenuManager;
 
     public bool paused = false;
 
@@ -21,7 +22,10 @@ public class MoveTo : MonoBehaviour
 
         GameObject tree = GameObject.FindGameObjectWithTag("EndTree");
         treeLocation = tree.transform;
+
         TimeShifter = FindObjectOfType<TimeShifter>();
+        MenuManager = FindObjectOfType<MenuManager>();
+
     }
 
     // Update is called once per frame
@@ -50,12 +54,9 @@ public class MoveTo : MonoBehaviour
             TimeState++;
         }
 
-        pause();
-
-        if (paused)
+        if (MenuManager.pauseMenuActive)
         {
             agent.speed = 0f;
-
         }
     }
 
@@ -73,14 +74,6 @@ public class MoveTo : MonoBehaviour
         {
             agent.velocity = new Vector3(-1f,0,0);
             agent.acceleration = 8f;
-        }
-    }
-
-    private void pause()
-    {
-        if (Input.GetKeyUp(KeyCode.K))
-        {
-            paused = !paused;
         }
     }
 }

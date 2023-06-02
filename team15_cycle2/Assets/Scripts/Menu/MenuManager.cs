@@ -16,7 +16,7 @@ public class MenuManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.B)) //MUST CHANGE TO esc
         {
             pauseMenuActive = !pauseMenuActive;
-            Debug.Log("Paused: " + (pauseMenuActive ? "T" : "F"));
+            //Debug.Log("Paused: " + (pauseMenuActive ? "T" : "F"));
         }
     }
 }

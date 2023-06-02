@@ -11,6 +11,8 @@ public class DmgTree : MonoBehaviour
     private Animator anim;
     private ParticleSystem flame_enable;
 
+    private MenuManager MenuManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +25,10 @@ public class DmgTree : MonoBehaviour
         childSphereCollider = childObject.GetComponent<SphereCollider>();
 
         flame_enable.Pause();
-        
+
+        MenuManager = FindObjectOfType<MenuManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -34,17 +36,20 @@ public class DmgTree : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if(col.gameObject.tag == "EndTree")
+        if (!MenuManager.pauseMenuActive)
         {
-            agent.speed = 0f;
-            agent.velocity = new Vector3(0,0,0);
-            agent.acceleration = 0f;
+            if(col.gameObject.tag == "EndTree")
+            {
+                agent.speed = 0f;
+                agent.velocity = new Vector3(0,0,0);
+                agent.acceleration = 0f;
 
-            TreeHealth.TreeHealthNo = TreeHealth.TreeHealthNo - 0.1f;
+                TreeHealth.TreeHealthNo = TreeHealth.TreeHealthNo - 0.1f;
 
-            //CHANGE ANIMATION HERE
-            anim.Play("Attack",0,0);
-            flame_enable.Play();
+                //CHANGE ANIMATION HERE
+                anim.Play("Attack",0,0);
+                flame_enable.Play();
+            }
         }
     }
 }
