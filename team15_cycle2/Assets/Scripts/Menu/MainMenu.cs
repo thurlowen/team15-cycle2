@@ -5,26 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private Canvas MM;
-
-    void Start()
+    public void PlayGame()
     {
-        MM = gameObject.GetComponent<Canvas>();
-        MM.enabled = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void Play()
-    {
-        SceneManager.LoadScene(1);
-    }
-
-    public void Quit()
+    public void QuitGame()
     {
         Application.Quit();
-    }
-
-    public void HelpMenu()
-    {
-        Debug.Log("help");
     }
 }
