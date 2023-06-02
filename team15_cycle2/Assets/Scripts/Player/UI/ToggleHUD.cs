@@ -12,7 +12,7 @@ public class ToggleHUD : MonoBehaviour
         HUD = gameObject.GetComponent<Canvas>();
         HUD.enabled = true;
 
-        MenuManager = GameObject.Find("Menu").GetComponent<MenuManager>();
+        MenuManager = FindObjectOfType<MenuManager>();
     }
 
     void Update()

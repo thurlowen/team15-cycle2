@@ -17,6 +17,7 @@ using UnityEngine.UI;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+    private MenuManager MenuManager;
 
     #region Camera Movement Variables
 
@@ -151,7 +152,9 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
-        if(lockCursor)
+        MenuManager = FindObjectOfType<MenuManager>();
+        
+        if(lockCursor && !MenuManager.pauseMenuActive)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -204,8 +207,10 @@ public class FirstPersonController : MonoBehaviour
     {
         #region Camera
 
+        
+        
         // Control camera movement
-        if(cameraCanMove)
+        if(cameraCanMove && !MenuManager.pauseMenuActive)
         {
             yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
 
@@ -362,13 +367,19 @@ public class FirstPersonController : MonoBehaviour
         {
             HeadBob();
         }
+
+        if (MenuManager.pauseMenuActive)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 
     void FixedUpdate()
     {
         #region Movement
 
-        if (playerCanMove)
+        if (playerCanMove && !MenuManager.pauseMenuActive)
         {
             // Calculate how fast we should be moving
             Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -462,7 +473,7 @@ public class FirstPersonController : MonoBehaviour
     private void Jump()
     {
         // Adds force to the player rigidbody to jump
-        if (isGrounded)
+        if (isGrounded && !MenuManager.pauseMenuActive)
         {
             rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
             isGrounded = false;

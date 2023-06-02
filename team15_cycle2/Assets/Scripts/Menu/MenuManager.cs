@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
 
     private void TogglePauseMenu()
     {
-        if (Input.GetKeyUp(KeyCode.B)) //MUST CHANGE TO esc
+        if (Input.GetKeyUp(KeyCode.Escape)) //MUST CHANGE TO esc
         {
             pauseMenuActive = !pauseMenuActive;
             //Debug.Log("Paused: " + (pauseMenuActive ? "T" : "F"));
