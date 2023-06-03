@@ -47,6 +47,7 @@ public class TerrainDeformer : MonoBehaviour
         
 
         terr = this.GetComponent<Terrain>();
+        //Find by terrain name
         hmWidth = terr.terrainData.heightmapResolution;
         hmHeight = terr.terrainData.heightmapResolution;
         alphaMapWidth = terr.terrainData.alphamapWidth;
