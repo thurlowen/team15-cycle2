@@ -51,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpwnEn()
     {
-        Instantiate(enemy, new Vector3(13,2,Random.Range(-15, 15)), Quaternion.identity);
+        Instantiate(enemy, new Vector3(80,2,Random.Range(-10, 30)), Quaternion.identity);
     }
     
 }
