@@ -75,7 +75,7 @@ public class TimeShifter : MonoBehaviour
             if (currentTime > 0)
             {
                 currentTime -= 1 * Time.deltaTime;
-                Debug.Log(currentTime);
+                //Debug.Log(currentTime);
             }
 
             if (currentTime <= 0 && timeState == 0)

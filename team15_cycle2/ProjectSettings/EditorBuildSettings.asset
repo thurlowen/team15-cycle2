@@ -8,12 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: b931f0297c772b04b97e89c5e464a3e8
-<<<<<<< Updated upstream
-=======
-  - enabled: 0
-    path: Assets/Scenes/MAX.unity
-    guid: 248823fd38d294cf0846f9b56c1f9477
->>>>>>> Stashed changes
   - enabled: 1
     path: Assets/Scenes/MergedScene.unity
     guid: ecae49406066a39408bf2ea52b607a73
