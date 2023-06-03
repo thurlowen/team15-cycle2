@@ -8045,7 +8045,19 @@ MonoBehaviour:
       aliases: []
   onDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1692844281}
+        m_TargetAssemblyTypeName: EndPhase, Assembly-CSharp
+        m_MethodName: Scene1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onClick:
     m_PersistentCalls:
       m_Calls: []
@@ -18725,7 +18737,7 @@ Transform:
   m_GameObject: {fileID: 1707398985}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.040094357, y: 1.4835987, z: 22.113638}
-  m_LocalScale: {x: 1.9679525, y: 6.9666986, z: 6.9666967}
+  m_LocalScale: {x: 1.9679525, y: 6.9666986, z: 324.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 336518692}

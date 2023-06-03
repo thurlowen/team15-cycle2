@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndPhase : MonoBehaviour
 {
@@ -18,5 +19,9 @@ public class EndPhase : MonoBehaviour
     void Update()
     {
         EndText.text = "Thanks to you...\nGaia will protect "+TimeShifter.waveCount+" generations.";
+    }
+    public void Scene1()
+    {
+        SceneManager.LoadScene("StartMenu");
     }
 }
