@@ -74,7 +74,7 @@ public class RayCaster : MonoBehaviour
                     //do something if hit object ie
                     if (objectHit.collider.gameObject.tag == "Ground")
                     {
-                        terrainnn.GetComponent<TerrainDeformer>().DestroyTerrain(new Vector3(objectHit.point.x, objectHit.point.y + 10, objectHit.point.z), 7);
+                        terrainnn.GetComponent<TerrainDeformer>().DestroyTerrain(new Vector3(objectHit.point.x, objectHit.point.y + 10, objectHit.point.z), 9);
                         Instantiate(WaterSlow, objectHit.point, Quaternion.identity);
                         pc.playerCurrency -= 100;
 
