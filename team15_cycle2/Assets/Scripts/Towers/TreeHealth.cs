@@ -9,6 +9,8 @@ public class TreeHealth : MonoBehaviour
     private float MaxHealth;
     private Scrollbar slider;
 
+    private AudioSource treeChop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,8 @@ public class TreeHealth : MonoBehaviour
 
         MaxHealth = 100f;
         TreeHealthNo = 100f;
+
+        treeChop = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +33,8 @@ public class TreeHealth : MonoBehaviour
         if(col.gameObject.tag == "EnemyDMG")
         {
             TreeHealthNo = TreeHealthNo - 0.1f;
+            treeChop.Play();
         }
+        
     }
 }

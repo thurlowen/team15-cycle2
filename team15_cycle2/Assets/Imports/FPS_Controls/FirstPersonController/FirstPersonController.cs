@@ -18,6 +18,7 @@ public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
     private MenuManager MenuManager;
+    private AudioSource audioSource;
 
     #region Camera Movement Variables
 
@@ -153,6 +154,7 @@ public class FirstPersonController : MonoBehaviour
     void Start()
     {
         MenuManager = FindObjectOfType<MenuManager>();
+        audioSource = GetComponent<AudioSource>();
         
         if(lockCursor && !MenuManager.pauseMenuActive)
         {
@@ -446,6 +448,11 @@ public class FirstPersonController : MonoBehaviour
                 velocityChange.y = 0;
 
                 rb.AddForce(velocityChange, ForceMode.VelocityChange);
+            }
+
+            if (isWalking && !audioSource.isPlaying)
+            {
+                audioSource.Play();
             }
         }
 

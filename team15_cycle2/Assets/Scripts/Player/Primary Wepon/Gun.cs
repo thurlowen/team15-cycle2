@@ -9,11 +9,13 @@ public class Gun : MonoBehaviour
 
     private MenuManager MenuManager;
     private TimeShifter ts;
+    private AudioSource shotAudio;
 
     void Start()
     {
         MenuManager = FindFirstObjectByType<MenuManager>();
         ts = GameObject.Find("TowerDamage").GetComponent<TimeShifter>();
+        shotAudio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -27,6 +29,7 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         GameObject Bullet = Instantiate(BulletPrefab, SpawnPoint.position, SpawnPoint.rotation);
+        shotAudio.Play();
 
         BulletMove bulletMove = Bullet.GetComponent<BulletMove>();
         bulletMove.speed = bulletSpeed;
