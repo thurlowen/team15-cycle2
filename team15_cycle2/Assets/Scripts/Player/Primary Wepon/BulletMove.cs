@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-    private Gun Gun;
+    //private Gun Gun;
     private GameObject Camera;
     
-    public float speed = 50f;
+    public float speed = 300f;
     private Vector3 direction;
+    //private Vector3 forwards;
     
     void Start()
     {
-        //Camera = GameObject.Find("PlayerCamera");
-        //Transform CamPos = Camera.GetComponent<Transform>();
+        Camera = GameObject.Find("PlayerCamera");
+        Transform CamPos = Camera.GetComponent<Transform>();
 
-        Gun = FindFirstObjectByType<Gun>();
-        direction = Gun.point;
+        //Gun = FindFirstObjectByType<Gun>();
+        //direction = Gun.point;
+
+        direction = CamPos.transform.forward;
         transform.rotation = Quaternion.LookRotation(-direction);
     }
 
