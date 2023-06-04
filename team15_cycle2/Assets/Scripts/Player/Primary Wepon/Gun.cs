@@ -6,7 +6,6 @@ public class Gun : MonoBehaviour
 
     public Camera Camera;
     public GameObject Bullet;
-    private float velocity = 10;
     public float hitThreshold = 0.1f;
     public Vector3 point;
 
@@ -25,7 +24,9 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !MenuManager.pauseMenuActive && ts.isAttack == true)
         {
-            Shoot();
+            //Shoot();
+
+            Bullet = Instantiate(Bullet, transform.position + SpawnShift, Quaternion.identity);
         }
     }
 
@@ -37,8 +38,6 @@ public class Gun : MonoBehaviour
             //Debug.Log(hit.point);
 
             point = hit.point;
-            Bullet = Instantiate(Bullet, transform.position + SpawnShift, Quaternion.identity);
-            
         }
     }
 
