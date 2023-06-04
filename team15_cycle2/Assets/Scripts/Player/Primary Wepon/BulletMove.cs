@@ -1,31 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-    //private Gun Gun;
-    private GameObject Camera;
-    
-    public float speed = 300f;
-    private Vector3 direction;
-    //private Vector3 forwards;
-    
-    void Start()
-    {
-        Camera = GameObject.Find("PlayerCamera");
-        Transform CamPos = Camera.GetComponent<Transform>();
+    public float speed;
+    public Vector3 direction;
 
-        //Gun = FindFirstObjectByType<Gun>();
-        //direction = Gun.point;
-
-        direction = CamPos.transform.forward;
-        transform.rotation = Quaternion.LookRotation(-direction);
-    }
+    private float lifeTime = 5f;
+    private float timer = 0f;
+   
 
     void Update()
     {
-        //forwards = new Vector3(1, 0, 0);
         transform.position += direction * Time.deltaTime * speed;
+
+        timer += Time.deltaTime;
+        if (timer >= lifeTime)
+        {
+            Destroy(gameObject);
+            timer = 0f;
+        }
     }
 }
