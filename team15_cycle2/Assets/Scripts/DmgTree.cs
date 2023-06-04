@@ -11,7 +11,7 @@ public class DmgTree : MonoBehaviour
     private Animator anim;
     private ParticleSystem flame_enable;
 
-    private MenuManager MenuManager;
+    private MenuManager menuManager;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class DmgTree : MonoBehaviour
 
         flame_enable.Pause();
 
-        MenuManager = FindObjectOfType<MenuManager>();
+        menuManager = FindObjectOfType<MenuManager>();
     }
 
     void Update()
@@ -36,9 +36,9 @@ public class DmgTree : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (!MenuManager.pauseMenuActive)
+        if(col.gameObject.tag == "EndTree")
         {
-            if(col.gameObject.tag == "EndTree")
+            if (menuManager.pauseMenuActive == false)
             {
                 agent.speed = 0f;
                 agent.velocity = new Vector3(0,0,0);
