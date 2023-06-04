@@ -10,6 +10,7 @@ public class BulletMove : MonoBehaviour
 
     private float lifeTime = 5f;
     private float timer = 0f;
+    private float damage = 20;
    
 
     void Update()
@@ -22,5 +23,20 @@ public class BulletMove : MonoBehaviour
             Destroy(gameObject);
             timer = 0f;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        LookAtCam enemy = other.GetComponent<LookAtCam>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+    }
+
+    public void DestroyBullet()
+    {
+        Destroy(gameObject);
     }
 }

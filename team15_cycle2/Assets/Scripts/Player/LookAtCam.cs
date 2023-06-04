@@ -37,7 +37,6 @@ public class LookAtCam : MonoBehaviour
         {
             Instantiate(money, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
-            
         }
     }
 
@@ -46,4 +45,8 @@ public class LookAtCam : MonoBehaviour
     //     Debug.Log(col.gameObject.tag);
     // }
 
+    public void TakeDamage(float damage)
+    {
+        EnemyHealth -= damage;
+    }
 }

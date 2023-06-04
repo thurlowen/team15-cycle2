@@ -1559,6 +1559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1_En Ready 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5678447758956340734, guid: 92735aab8b14e7b4e9648a5e967cb1af, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92735aab8b14e7b4e9648a5e967cb1af, type: 3}
 --- !u!1 &180628107
@@ -11174,7 +11178,6 @@ MonoBehaviour:
   Camera: {fileID: 1197533001}
   BulletPrefab: {fileID: 8401012611711959560, guid: e3e822d61e687304a9a95fc248e7fb6b, type: 3}
   SpawnPoint: {fileID: 334770170}
-  bulletSpeed: 300
 --- !u!1 &1356340876
 GameObject:
   m_ObjectHideFlags: 0
