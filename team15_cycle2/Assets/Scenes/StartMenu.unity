@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1470247, g: 0.36394262, b: 0.5799059, a: 1}
+  m_IndirectSpecularColor: {r: 0.14703749, g: 0.3639866, b: 0.57992274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1320,17 +1320,20 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'While you are in the past you must place towers to defend the tree of
-    Gaia.
-
-
-    Each towers has differnet effects, for 25 you can get low damage
-    but a high radius, 75 is the opposite, and 50 is a happy medium. The water tower
-    will slow any enemy who enters its radius.
-
-
-    If you seek to enter Gaia''s
-    radius, you are able to upgrade your towers and attacks to become more powerful.'
+  m_Text: "Nature is your friend and can help you win your fight, but it takes time
+    to grow.\n\nYou must travel to the past to sow your seeds so that your friends
+    are ready for you in the future.\r\n\nThe scientists can only keep you in the
+    past for a while so you must make the most of your time. They have given you
+    a timer for you to see how long you have left.\n \r\nThe defences available to
+    you are a river, a tree, a bush, and a Venus fly trap.\r\n\n    The river slows
+    enemies and gives you and your other defences more time to attack the pollution.\r\n\n   
+    The tree does the most damage to the enemies but costs the most, followed by
+    the venus fly trap, and then the bush.\n\r\nYou can navigate around the world
+    using WASD as well as holding shift to sprint. To place a defence you must point
+    and click on the ground within a small radius of the player.\n\nThe defence will
+    be placed on the location the crosshair is over.\r\n\nYou also have access to
+    the upgrade menu. Simply walk into Gaia to open the menu and select what you
+    want to upgrade. The upgrades available are to the defences and your weapon.\r\n"
 --- !u!222 &799003426
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3552,8 +3555,19 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Your towers have now grown, you must use your gift from Gaia to attack
-    these enemies, your towers will help... but they need your help.
+  m_Text: 'In the future your defences will be fully grown and will aid you in defending
+    Gaia.
+
+
+    When you are in the future you will be equipped with a magical staff
+    that shoots projectiles. These projectiles are very harmful to the enemies.
+
+
+    You
+    must work with your defences to defeat the current wave and earn currency to
+    place or upgrade defences in the next cycle.
+
+'
 --- !u!222 &1845689435
 CanvasRenderer:
   m_ObjectHideFlags: 0
