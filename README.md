@@ -91,5 +91,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2275920516
 
 ## Sound Effects:
 Enemy "Grunt" SFX - https://pixabay.com/sound-effects/ough-47202/
+    
 Shooting SFX - https://freesound.org/people/Jofae/sounds/389590/
+    
 Walking SFX - https://freesound.org/people/OwlStorm/sounds/151235/
