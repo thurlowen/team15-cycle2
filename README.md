@@ -75,6 +75,7 @@ void changeSlotColour()
 "
 </details>
 
+## Graphics:
 
 MochiesCode (Creator). (2023, April 1). Mochies Unity Shaders Full Shader Package v1.37 [unitypackage].
 https://github.com/MochiesCode/Mochies-Unity-Shaders/releases 
@@ -88,4 +89,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2446078698
 TheDizcordumSeventh, Jack Swan, Stenier [Rus] (Original Creator). (2022, September, 28). [WK] Imperium Citizens [FBX].
 https://steamcommunity.com/sharedfiles/filedetails/?id=2275920516 
 
-
+## Sound Effects:
+Enemy "Grunt" SFX - https://pixabay.com/sound-effects/ough-47202/
+Shooting SFX - https://freesound.org/people/Jofae/sounds/389590/
+Walking SFX - https://freesound.org/people/OwlStorm/sounds/151235/
