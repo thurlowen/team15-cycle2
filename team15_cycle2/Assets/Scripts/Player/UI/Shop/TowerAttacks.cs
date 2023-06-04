@@ -29,7 +29,7 @@ public class TowerAttacks : MonoBehaviour
         treeDamage = 0.65f;
         venusDamage = 0.15f;
         bushDamage = 0.3f;
-        bullDamage = 5f;
+        bullDamage = 2f;
 
         curr = GameObject.Find("Player").GetComponent<PlayerCurrency>();
         fps_con = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();

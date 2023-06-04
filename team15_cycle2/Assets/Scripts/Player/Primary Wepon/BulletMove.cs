@@ -10,10 +10,12 @@ public class BulletMove : MonoBehaviour
 
     private float lifeTime = 5f;
     private float timer = 0f;
-    private float damage = 20;
+    //private float damage = 20;
 
     private TowerAttacks TowerAttacks;
     private AudioSource gruntAudio;
+
+  
    
     void Start()
     {
@@ -37,7 +39,7 @@ public class BulletMove : MonoBehaviour
         LookAtCam enemy = other.GetComponent<LookAtCam>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(TowerAttacks.bullDamage);
             gruntAudio.Play();
             Destroy(gameObject, gruntAudio.clip.length);
         }

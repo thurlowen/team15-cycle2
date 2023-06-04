@@ -24,6 +24,10 @@ public class Gun : MonoBehaviour
         {
             Shoot();
         }
+        if (Input.GetMouseButtonDown(1) && !MenuManager.pauseMenuActive && ts.isAttack == true)
+        {
+            Shoot();
+        }
     }
 
     public void Shoot()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.14703749, g: 0.3639866, b: 0.57992274, a: 1}
+  m_IndirectSpecularColor: {r: 0.1470247, g: 0.36394262, b: 0.5799059, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11840,7 +11840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1398777590
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14751,6 +14751,7 @@ MonoBehaviour:
   treeDamage: 0
   venusDamage: 0
   bushDamage: 0
+  bullDamage: 0
 --- !u!114 &1753445038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16579,7 +16580,7 @@ MonoBehaviour:
   m_Text: 'Cost: 100
 
 
-    L Damage + 20%'
+    Damage + 20%'
 --- !u!222 &1960315443
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17486,7 +17487,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: L-ATK
+  m_Text: ATK
 --- !u!222 &2081196472
 CanvasRenderer:
   m_ObjectHideFlags: 0
