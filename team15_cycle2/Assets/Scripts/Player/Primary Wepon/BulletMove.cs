@@ -10,9 +10,13 @@ public class BulletMove : MonoBehaviour
 
     private float lifeTime = 5f;
     private float timer = 0f;
-    private float damage = 20;
-   
 
+    private TowerAttacks TowerAttacks;
+   
+    void Start()
+    {
+        TowerAttacks = FindObjectOfType<TowerAttacks>();
+    }
     void Update()
     {
         transform.position += direction * Time.deltaTime * speed;
@@ -30,7 +34,7 @@ public class BulletMove : MonoBehaviour
         LookAtCam enemy = other.GetComponent<LookAtCam>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(TowerAttacks.bullDamage);
             Destroy(gameObject);
         }
     }

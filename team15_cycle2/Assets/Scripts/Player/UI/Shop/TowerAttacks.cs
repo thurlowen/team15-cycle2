@@ -20,12 +20,17 @@ public class TowerAttacks : MonoBehaviour
     private int speed_count = 0;
     private Text speed_amount;
 
+    private BulletMove BulletMove;
+    public float bullDamage;
+
     // Start is called before the first frame update
     void Start()
     {
         treeDamage = 0.65f;
         venusDamage = 0.15f;
         bushDamage = 0.3f;
+        bullDamage = 5f;
+
         curr = GameObject.Find("Player").GetComponent<PlayerCurrency>();
         fps_con = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();
 
@@ -33,6 +38,8 @@ public class TowerAttacks : MonoBehaviour
         bush_amount = GameObject.Find("BushAmount").GetComponent<Text>();
         venus_amount = GameObject.Find("VenusAmount").GetComponent<Text>();
         speed_amount = GameObject.Find("SpeedAmount").GetComponent<Text>();
+
+        BulletMove = FindObjectOfType<BulletMove>();
     }
 
     // Update is called once per frame
@@ -80,6 +87,15 @@ public class TowerAttacks : MonoBehaviour
             fps_con.sprintSpeed = fps_con.sprintSpeed*1.1f;
             curr.playerCurrency -= 25;
             speed_count++;
+
+        }
+    }
+    public void LAtkUp()
+    {
+        if (curr.playerCurrency >= 100)
+        {
+            bullDamage = bullDamage * 1.2f;
+            curr.playerCurrency -= 100;
 
         }
     }
