@@ -56,16 +56,16 @@ public class TimeShifter : MonoBehaviour
         Timer();
 
         //Go to past
-        if (Input.GetKeyDown("o"))
-        {
-            ToPast();
-        }
+        //if (Input.GetKeyDown("o"))
+        //{
+            //ToPast();
+        //}
 
         //Skip to future
-        if (Input.GetKeyDown("p"))
-        {
-            ToFuture();
-        }
+        //if (Input.GetKeyDown("p"))
+        //{
+            //ToFuture();
+        //}
     }
 
     public void Timer()

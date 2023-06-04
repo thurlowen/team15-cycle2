@@ -33,7 +33,7 @@ public class TreeHealth : MonoBehaviour
         if(col.gameObject.tag == "EnemyDMG")
         {
             TreeHealthNo = TreeHealthNo - 0.1f;
-            treeChop.Play();
+            //treeChop.Play();
         }
         
     }
