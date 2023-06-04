@@ -1320,7 +1320,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Contents 2
+  m_Text: 'While you are in the past you must place towers to defend the tree of
+    Gaia.
+
+
+    Each towers has differnet effects, for 25 you can get low damage
+    but a high radius, 75 is the opposite, and 50 is a happy medium. The water tower
+    will slow any enemy who enters its radius.
+
+
+    If you seek to enter Gaia''s
+    radius, you are able to upgrade your towers and attacks to become more powerful.'
 --- !u!222 &799003426
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3542,7 +3552,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Contents 3
+  m_Text: Your towers have now grown, you must use your gift from Gaia to attack
+    these enemies, your towers will help... but they need your help.
 --- !u!222 &1845689435
 CanvasRenderer:
   m_ObjectHideFlags: 0
